@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>if else 문제07</title>
+    <style>
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let grade; /* 등급을 담을 수 있는 변수 선언. */
+        let score = Number(prompt("당신의 점수는 몇 점입니까?"));
+
+        if (score >= 90 && score <= 100) {
+            grade = "A등급";
+        } else if (score >= 80 && score < 90) {
+            grade = "B등급";
+        } else if (score >= 70 && score < 80) {
+            grade = "C등급";
+        } else if (score >= 60 && score < 70) {
+            grade = "D등급";
+        } else if (score >= 0 && score < 60) {
+            grade = "F등급";
+        }
+        else {
+            grade = "처리할 수 없는 등급"
+            document.write("점수 입력이 틀렸습니다. F5를 눌러 다시 1~100점 사이의 점수를 입력하세요")
+        }
+
+        document.write("당신의 등급은 <span>" + grade + "</span>이고,<br>당신의 점수는 <span class='bb'>" + score + "</span>점 입니다");
+    </script>
+</body>
+
+</html>

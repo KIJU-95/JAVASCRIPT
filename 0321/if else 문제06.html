@@ -3,14 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>if else 문제05</title>
+    <title>if else 문제06</title>
     <style>
         h1 {
             color: red;
-        }
-
-        h2 {
-            color: blue;
         }
     </style>
 </head>
@@ -26,11 +22,11 @@
             document.write("<h1>C등급</h1>");
         } else if (score >= 60 && score < 70) {
             document.write("<h1>D등급</h1>");
-        } else if (score <= 59 && score < 60) {
+        } else if (score >= 0 && score < 60) {
             document.write("<h1>F등급</h1>");
         }
         else {
-            document.write("F5를 눌러 새롭게 지정된 값을 입력하세요")
+            document.write("점수 입력이 틀렸습니다. F5를 눌러 다시 1~100점 사이의 점수를 입력하세요")
         }
 
         document.write("당신의 점수는" + score + "점 입니다");
