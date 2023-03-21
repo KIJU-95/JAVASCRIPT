@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if else</title>
+</head>
+
+<body>
+    <script>
+        let today = new Date();
+        // Date() - 현재 내가 쓰고 있는 컴퓨터의 날짜와 시간을 생성 2022.01.11. 15:14:31
+        let current = today.getHours(); /* 15 */
+        // 년: year, 월: month, 일: day, 시: hour, 분: minute, 초: second 
+
+        document.write("현재 시간은 <span>" + today.toLocaleDateString() + "<span>입니다 <br><br>");
+        if (current > 7 && current < 12) {
+            /* 논리곱 and 8, 9, 10, 11 */
+            document.write("<h1>good morning 좋은아침입니다</h1>");
+        } else if (current >= 12 && current < 14) {
+            /* 12, 13 */
+            document.write("<h1>점심은 드셨어요?</h1>");
+        } else if (current >= 14 && current < 18) {
+            /* 14, 15, 16, 17 */
+            document.write("<h1>나른한 오후지만 커피 한 잔과 함께 파이팅</h1>");
+        } else {
+            /* 18~24 */
+            document.write("<h1>편한 시간 되세요</h1>");
+        }
+    </script>
+
+</body>
+
+</html>
