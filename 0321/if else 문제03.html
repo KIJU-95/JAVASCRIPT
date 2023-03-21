@@ -1,24 +1,27 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<title>if else 문제03</title>
-	<style>
-	</style>
+    <meta charset="utf-8">
+    <title>if else 문제03</title>
+    <style>
+    </style>
 </head>
+
 <body>
-<script>
-	let text = prompt("남자는 1, 여자는 2, 변태는 3");
-	if(text == "1") {
-	alert("남탕");
-	} else if(text == "2") {
-	alert("여탕");
-	} else if(text == "3") {
-	alert("경찰서");
-	} else {
-	alert("새로 입력하세요.");
-	}
-</script>
+    <script>
+        let who = Number(prompt("당신은 누구입니까? (남자-1, 여자-2, 변태-3)"));
+        if (who == 1) {
+            document.write("남탕")
+        } else if (who == 2) {
+            document.write("여탕")
+        } else if (who == 3) {
+            document.write("경찰서")
+        }
+        else {
+            document.write("F5를 눌러 새롭게 지정된 값을 입력하세요")
+        }
+    </script>
 </body>
+
 </html>
