@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>if else 문제05</title>
+    <style>
+        h1 { color: red; }
+        h2 { color: blue; }
+    </style>
+</head>
+
+<body>
+    <script>
+    let score = Number(prompt("당신의 점수는 몇 점입니까?"));
+        if (score >= 90 && score <=100 ) {
+            document.write("<h1>A등급</h1>" + "<h2>당신의 점수는</h2>" + score + "점 입니다");
+        } else if (score >=80 && score <90 ) {
+            document.write("<h1>B등급</h1>" + "<h2>당신의 점수는</h2>" + score + "점 입니다");
+        } else if (score >=70 && score <80) {
+            document.write("<h1>C등급</h1>" + "<h2>당신의 점수는</h2>" + score + "점 입니다");
+        } else if (score >=60 && score <70) {
+            document.write("<h1>D등급</h1>" + "<h2>당신의 점수는</h2>" + score + "점 입니다");
+        } else if (score <=59 && score <60) {
+            document.write("<h1>F등급</h1>" + "<h2>당신의 점수는</h2>" + score + "점 입니다");
+        }
+        else {
+            document.write("F5를 눌러 새롭게 지정된 값을 입력하세요")
+        }
+    </script>
+</body>
+
+</html>
