@@ -1,3 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>if문 활용 계절 문제</title>
+		<style>
+			body { background : url("images/bg10.gif") left top; opacity : 1; }
+		</style>
+	</head>
+	<body>
+		<script>
+			let seasons = prompt("어느 계절을 좋아하세요? (1:봄, 2:여름, 3:가을, 4:겨울)", "1");
+			
+			if ( seasons == "1" ) {
+				document.write("<h1>봄을 좋아하시는군요</h1><img src='images/spring.png'>");
+			} else if ( seasons == "2") {
+				document.write("<h1>여름을 좋아하시는군요</h1><img src='images/summer.png'>");
+			} else if( seasons == "3") {
+				document.write("<h1>가을을 좋아하시는군요</h1><img src='images/fall.png'>");
+			} else if ( seasons == "4" ) {
+				document.write("<h1>겨울을 좋아하시는군요</h1><img src='images/winter.png'>");
+			} else {
+				alert("잘못 입력하였습니다. F5번 키를 눌러서 다시 입력해주세요.");
+			}
+		</script>
+	</body>
+</html>
+
+
+
+<!-- 
 <!doctype html>
 <html>
 
@@ -45,45 +77,5 @@
     </script>
 </body>
 
-</html>
-
-
-
-<!-- 
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>if와 else 문제 08</title>
-		<style>
-			body {background:url(../images/bg10.gif);}
-		</style>
-	</head>
-	<body>
-		<script>
-			let choice;
-			let image;
-			let season = prompt("어느 계절을 좋아하세요? (1:봄, 2:여름, 3:가을, 4:겨울)");
-			if (season == "1" || season == "봄") {
-				choice = ("봄");
-				image = ("spring");
-			} else if (season == "2" || season == "여름") {
-				choice = ("여름");
-				image = ("summer");
-			} else if (season == "3" || season == "가을") {
-				choice = ("가을");
-				image = ("fall");
-			} else if (season == "4" || season == "겨울") {
-				choice = ("겨울");
-				image = ("winter");
-			} else {
-				alert ("당신은 계절에 관심이 없군요. ㅠㅠ");
-				choice=("당신은 매일매일");
-				image=("img18");
-			}
-			
-			document.write ("<h1>"+choice+"을 좋아하시는군요.</h1>");
-			document.write ("<img src='../images/"+image+".png'>");
-		</script>
-	</body>
 </html> -->
+
