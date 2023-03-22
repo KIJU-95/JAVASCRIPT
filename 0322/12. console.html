@@ -1,37 +1,28 @@
+
+
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>console(1부터 임의의 숫자까지의 합 구하기)</title>
-	<style>
-
-	</style>
-</head>
-
-<body>
-	<script>
-		let sum = 0;
-		let inn = prompt("합계를 구하고자하는 숫자를 입력하세요");
-		for (let i = 0; i <= inn; i++) {
-			console.log(sum); /* 계산의 과정을 콘솔창에 보여줌 */
-			sum = inn + i;
-		}
-		document.write("1~" + inn + "까지의 합 : " + sum);
-	</script>
-	<!-- 입력값이 반복적으로 두번 나오는 이유 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	-->
-</body>
-
+	<head>
+		<meta charset="UTF-8">
+		<title>for주석, console(1부터 임의의 숫자까지의 합 구하기)</title>
+  </head>
+	<body>
+		<script>
+			let sum = 0;
+			let inn = prompt("임의의 숫자를 입력해주세요.");
+			
+			for ( i=0; i <= inn; i++) {
+				sum = inn + i;
+				console.log(sum);  // 계산의 과정을 콘솔창에 보여줌.
+			}
+			document.write("입력하신 숫자 : " + inn +"<br>");
+			document.write("1부터 " + inn + "까지의 합 : " + sum);
+			/*
+				입력값이 반복적으로 두 번 나오는 이유
+				prompt로 입력 받은 값은 문자형이기 때문에
+				'sum = rNum + i' 실행문에서 rNum의 값은 문자형 숫자이고 i의
+				값은 숫자형으로 +연산자의 기능은 연결 연산자가 되어 rNum의 문자와 i의 숫자가 연결되어 출력된다.
+			*/
+		</script>
+	</body>
 </html>
