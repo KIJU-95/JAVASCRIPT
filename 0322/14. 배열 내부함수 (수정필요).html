@@ -8,15 +8,15 @@
 
 <body>
 	<script>
-		let arScore = [88, 78, 96, 54, 23]; /* arScore[0]88 */
+		let arScore = [88, 78, 96, 54, 23]; /* arScore[0]:88 */
 		let sum = 0;
 
-		for(let st = 0, st < arScore. length(); st++) {
-			sum + = arScore[st]; /* sum=sum + arScore[st]; */
+		for (let st = 0, st<arScore.length; st++) {
+			sum += arScore[st]; /* sum=sum + arScore[st]; */
 		}
 
-		document.write("총점" + sum + ",평균" + sum / arScore.length + "<br>");
-		document.write("arScore의 데이터 개수는 총" + arScore.length + "개입니다");
+		document.write("총점" + sum + ", 평균" + sum / arScore.length + "<br>");
+		document.write("arScore의 데이터 개수는 총" + arScore.length + "개 입니다");
 	</script>
 	<!-- .length는 배열에서 인자의 개수를 구하는 배열 내부함수 -->
 </body>
