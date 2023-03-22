@@ -12,24 +12,28 @@
 	<script>
 		let sum = 0;
 		let inn = prompt("합계를 구하고자 하는 숫자를 입력하세요.")
-		let end = prompt("홀수를 구하려면 '홀', 짝수를 구하려면 '짝'을 입력하세요.")
-		if (end == "짝") {
-			for (let i = 0; i <= inn; i += 2) {
-				console.log(sum);
-				sum = sum + i;
-			} document.write("1~" + inn + "까지의 짝수의 합 : " + sum);
+		let holjjak = prompt("홀수를 구하려면 '홀', 짝수를 구하려면 '짝'을 입력하세요.")
 
-		} else if (end == "홀") {
-			for (let i = 1; i <= inn; i += 2) {
-				console.log(sum);
-				sum = sum + i;
-			} document.write("1~" + inn + "까지의 홀수의 합 : " + sum);
-		} else {
-			alert("다시 입력해주세요.");
+		for (let i = 1, i<= inn; i++) {
+
 		}
 
+		// if (holjjak == "홀" || holjjak == "짝") {
+		// 	if (holjjak == "홀") {
+		// 		for (let i = 1; i <= inn; i += 2) {
+		// 			sum = sum + i;
+		// 		}
+		// 	}
+		// } else {
+		// 	for (let i = 0; i <= inn; i += 2) {
+		// 		sum = sum + i;
+		// 	}
+		// }
+		// else {
+		// 	document.write("'홀' 또는 '짝' 글자를 정확하게 입력하세요")
+		// }
 
-
+		document.write("1~" + inn + "까지의" + holjjak + "홀수의 합 :" + sum);
 	</script>
 </body>
 
