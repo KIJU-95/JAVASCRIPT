@@ -11,11 +11,16 @@
 <body>
 	<script>
 		let sum = 0;
-		let inn = prompt("합계를 구하고자 하는 숫자를 입력하세요.")
-		let holjjak = prompt("홀수를 구하려면 '홀', 짝수를 구하려면 '짝'을 입력하세요.")
+		let inn = prompt("합계를 구하고자 하는 숫자를 입력하세요.");
+		let holjjak = prompt("홀수를 구하려면 '홀', 짝수를 구하려면 '짝'을 입력하세요.");
 
-		for (let i = 1, i<= inn; i++) {
-
+		for (let i = 1, i <= inn; i++) {
+			if (holjjak == "홀" && i % 2 == 1) {
+				sum = sum + i; /* sum+=i; */
+			}
+			if (holjjak == "짝" && i % 2 == 0) {
+				sum = sum + i; /* sum+=i; */
+			}
 		}
 
 		// if (holjjak == "홀" || holjjak == "짝") {
@@ -30,7 +35,7 @@
 		// 	}
 		// }
 		// else {
-		// 	document.write("'홀' 또는 '짝' 글자를 정확하게 입력하세요")
+		// 	document.write("'홀' 또는 '짝' 글자를 정확하게 입력하세요");
 		// }
 
 		document.write("1~" + inn + "까지의" + holjjak + "홀수의 합 :" + sum);
