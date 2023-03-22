@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>구구단 2~9단 출력</title>
+	<title>구구단 2~9단 출력 (단 구분하기)</title>
 	<style>
 	</style>
 </head>
@@ -13,8 +13,9 @@
 		for (let dan = 2; dan <= 9; dan++) {
 			for (let i = 1; i <= 9; i++) {
 				document.write(dan + "*" + i + "=" + dan*i + "<br>");
-			}
 		}
+		document.write("<br>"); /* 단 구분을 위한 빈 줄 삽입 */
+	}
 	</script>
 </body>
 
