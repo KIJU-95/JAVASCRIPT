@@ -15,10 +15,11 @@
 	<script>
 		let sum = 0;
 		let inn = prompt("합계를 구하고자하는 숫자를 입력하세요");
-		for (let i = 0; i <= 5 num; i +=2 ) {
-			odd = number + i; /* 실행문 */
+		for (let i = 0; i <= inn; i++) {
+			console.log(sum); /* 계산의 과정을 콘솔창에 보여줌 */
+			sum = sum + i;
 		}
-		document.write("1~" + num + "까지의 홀 수의 합 : " + sum);
+		document.write("1~" + inn + "까지의 합 : " + sum);
 	</script>
 	<!-- for(초기값;종료값;증감값;) {
 		실행문;
