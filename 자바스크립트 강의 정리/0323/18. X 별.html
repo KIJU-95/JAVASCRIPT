@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>별 직각삼각형 왼쪽 방향으로 돌리기</title>
+	<style>
+		body {
+			margin: 150px;
+		}
+
+		span {
+			color: #f00;
+			font-size: 100px;
+			font-weight: bold;
+			line-height: 10px;
+		}
+
+		.gongbeakSize {
+			font-size: 130px;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		for (let line = 1; line <= 8; line++) {   
+			for (let star = 1; star <= line; star++) {   
+				document.write("<span>*</span>");
+			}
+			document.write("<br>");
+		}
+
+
+		for (let line = 9; line >= 1; line--) { 
+			for (let star = 1; star <= line; star++) {
+				document.write("<span>*</span>");
+			}
+			document.write("<br>");
+		}
+	</script>
+</body>
+
+</html>
