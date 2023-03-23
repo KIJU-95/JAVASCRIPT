@@ -15,13 +15,20 @@
 			font-weight: bold;
 			line-height: 10px;
 		}
+
+		.gongbeakSize {
+			font-size: 130px;
+		}
 	</style>
 </head>
 
 <body>
 	<script>
-		for (let line = 1; line <= 10; line++) {  
-			for (let star = 1; star <= line; star++) {
+		for (let line = 1; line <= 10; line++) { //줄 수  
+			for (let gongbeak = 10 - line; gongbeak >= 1; gongbeak--) {  //공백 개수
+				document.write("<span class='gongbeakSize'>&nbsp;</span>");
+			}
+			for (let star = 1; star <= line; star++) {   //별 개수
 				document.write("<span>*</span>");
 			}
 			document.write("<br>");
