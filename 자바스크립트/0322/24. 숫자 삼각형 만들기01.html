@@ -13,7 +13,7 @@
 			color: #f00;
 			font-size: 100px;
 			font-weight: bold;
-			line-height: 10px;
+			line-height: 70px;
 		}
 	</style>
 </head>
@@ -21,8 +21,8 @@
 <body>
 	<script>
 		for (let line = 1; line <= 9; line++) {    /* line : 줄 수 */
-			for (let star = 1; star <= line; star++) {
-				document.write("<span>*</span>");
+			for (let number = 1; number <= line; number++) {
+				document.write("<span>" + line + "</span>");
 			}
 			document.write("<br>");
 		}
