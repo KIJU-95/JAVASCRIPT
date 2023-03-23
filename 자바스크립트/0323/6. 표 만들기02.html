@@ -8,27 +8,20 @@
 
 <body>
 	<script>
-		/* 	let cnt = 1;  td안에서 자동으로 증가할 번호 */
+		let cnt = 1; /*  td안에서 자동으로 증가할 번호 */
 		let newTable = "<table border='1'>";
-		newTable += "<tr>";
 
-		for (let i = 1; i <= 5; i++) {
-			newTable += "<td>" + i + "</td>";    /* "<td>" + cnt + "</td>" */
-			/* cnt++; */
+		for (let row = 1; row <= 4; row++) {
+			newTable += "<tr>";
+
+			for (let col = 1; col <= 5; col++) {
+				newTable += "<td>" + cnt + "</td>";
+				cnt++;
+			}
+			newTable += "</tr>";
 		}
-
-		newTable += "</tr>";
 		newTable += "</table>";
 		document.write(newTable);
-
-
-
-		// let t = "<table border= '1'>"
-		// t += "<tr>"; // t = t + "<tr>";    =+, -=, /=, *=,%=
-		// t += "<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>";
-		// t += "<tr>";
-		// t += "</table>";
-		// document.write(t);
 	</script>
 </body>
 
