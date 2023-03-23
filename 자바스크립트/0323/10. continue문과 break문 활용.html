@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>3의 배수03</title>
+</head>
+<style>
+	span {
+		font-size: 30px;
+		font-weight: bold;
+		color: #000;
+	}
+
+	.red {
+		color: red;
+	}
+</style>
+
+<body>
+	<script>
+		let gongbeak = "&nbsp;&nbsp;";
+
+		for (num = 1; num <= 20; num++) {
+			if (num % 3 == 0) {
+				continue;
+				document.write("<sapn class='red'>짝</span>" + gongbeak);
+
+			} else{
+				document.write("<sapn>" + num + "</span>" + gongbeak);
+			}
+		}
+
+
+		// for (num = 1; num <= 20; num++) {
+		// 	if (num % 3 == 0) {
+		// 	} else {
+		// 		document.write("<span>" + num + "</sapn>");
+		// 	}
+		// }
+	</script>
+</body>
+
+</html>
