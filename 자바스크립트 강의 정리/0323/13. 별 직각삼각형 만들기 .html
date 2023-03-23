@@ -24,17 +24,18 @@
 
 <body>
 	<script>
-		for (let line = 1; line <= 10; line++) { //줄 수  
+/* 		let starNum = 1;
+ */		for (let line = 1; line <= 10; line++) { //줄 수  
 			for (let gongbeak = 10 - line; gongbeak >= 1; gongbeak--) {  //공백 개수
 				document.write("<span class='gongbeakSize'>&nbsp;</span>");
 			}
-			for (let star = 1; star <= line; star++) {   //별 개수
+			// for (let star = 1; star <= starNum; star++) {   //별 개수
+			for (let star = 1; star <= (line*2)-1; star++) {   //별 개수
 				document.write("<span>*</span>");
 			}
-			document.write("<br>");
+/* 			starNum += 2;
+ */			document.write("<br>");
 		}
-
-
 	</script>
 </body>
 
