@@ -5,12 +5,19 @@
 	<meta charset="utf-8">
 	<title>별 삼각형 만들기</title>
 	<style>
+		body { margin: 150px; }
+		span { color: #f00; font-size: 100px; font-weight: bold; line-height: 10px;}
 	</style>
 </head>
 
 <body>
 	<script>
-
+		for (let line=1; line <=9; line++) {    /* line : 줄 수 */
+			for (let star=1; star <=line; star++) {
+				document.write("<span></span>");
+			}
+			document.write("<br>")
+		}
 	</script>
 </body>
 
