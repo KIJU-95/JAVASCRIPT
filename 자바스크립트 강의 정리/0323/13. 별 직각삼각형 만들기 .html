@@ -25,28 +25,16 @@
 <body>
 	<script>
 		for (let line = 1; line <= 10; line++) { //줄 수  
-			for (let gongbeak = 0; gongbeak <= line - 1; gongbeak++) {  //공백 개수
+			for (let gongbeak = 10 - line; gongbeak >= 1; gongbeak--) {  //공백 개수
 				document.write("<span class='gongbeakSize'>&nbsp;</span>");
 			}
-			for (let star = 10; star >= line; star--) {   //별 개수
+			for (let star = 1; star <= line; star++) {   //별 개수
 				document.write("<span>*</span>");
 			}
 			document.write("<br>");
 		}
-		document.write("<br>");
 
 
-
-		for (let line = 10; line >= 1; line--) {
-			for (let blank = 10; blank >= line; blank--) {
-				document.write("<span class='gongbeakSize'>&nbsp;</span>");
-			}
-
-			for (let star = line; star >= 1; star--) {
-				document.write("<span>*</span>")
-			}
-			document.write("<br>");
-		}
 	</script>
 </body>
 
