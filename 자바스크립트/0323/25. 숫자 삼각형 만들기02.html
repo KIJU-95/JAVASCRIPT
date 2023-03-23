@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>별 삼각형 만들기</title>
+	<title>숫자 삼각형 만들기02</title>
 	<style>
 		body {
 			margin: 150px;
@@ -13,16 +13,16 @@
 			color: #f00;
 			font-size: 100px;
 			font-weight: bold;
-			line-height: 10px;
+			line-height: 70px;
 		}
 	</style>
 </head>
 
 <body>
 	<script>
-		for (let line = 9; line >= 1; line--) {    /* line : 줄 수 */
-			for (let star = 1; star <= line; star++) {
-				document.write("<span>*</span>");
+		for (let line = 1; line <= 9; line++) {    /* line : 줄 수 */
+			for (let number = 1; number <= line; number++) {
+				document.write("<span>" + number + "</span>");
 			}
 			document.write("<br>");
 		}
