@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>표 만들기03</title>
+</head>
+
+<body>
+	<script>
+		let cnt = 1; /*  td안에서 자동으로 증가할 번호 */
+		let tableRows = prompt("만들고자 하는 표의 줄 수를 입력하세요",3);
+		let tableCols = prompt("만들고자 하는 표의 칸 수를 입력하세요",3);
+		let newTable = "<table border='1'>";
+
+
+		for (let row = 1; row <= 4; row++) {
+			newTable += "<tr>";
+
+			for (let col = 1; col <= 5; col++) {
+				newTable += "<td>" + cnt + "</td>";
+				cnt++;
+			}
+			newTable += "</tr>";
+		}
+		newTable += "</table>";
+		document.write(newTable);
+		document.write("1~" + num + "까지의 합 : " + sum);
+	</script>
+</body>
+
+</html>
