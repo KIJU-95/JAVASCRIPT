@@ -21,14 +21,16 @@
 		let go = true;
 		let speed = 0;
 		let gagam;
-		while (go) {
+
 			document.write("*********************<br>");
 			document.write("1.가속 / 2.감속 / 3.중지 <br>");
 			document.write("*********************<br>");
 
+			while (go) {
+
 			let choice = prompt("원하는 값을 입력하세요. 가속(1) / 감속(2) / 중지(3)", 1);
 
-			if (choice == 1) {
+			if (choice == 1) {  /* == 오직 값만을 비교, === 값과 자료형을 동시에 비교 */
 				speed++;
 				gagam = "가속";
 
