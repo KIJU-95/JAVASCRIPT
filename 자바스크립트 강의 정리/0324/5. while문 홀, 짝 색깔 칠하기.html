@@ -3,29 +3,29 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>while문(조건문) 05</title>
+	<title>while문 홀, 짝 색깔 칠하기 05</title>
 </head>
 <style>
-	span {
-		font-size: 30px;
-		font-weight: bold;
+	body {
 		color: blue;
 	}
 
-	.red {
+	span {
 		color: red;
 	}
 </style>
 
 <body>
 	<script>
-		for (num = 10; num <= 20; num++) {
+		let num = 20;
+		while (num >= 10) {
 			if (num % 2 == 0) {
-				document.write("<span>" + num + "</sapn>" + "<br>");
+				document.write("<span>" + num + "</span><br>");
 			} else {
-					document.write("<span class= 'red'>짝</sapn>" + "<br>");
+				document.write(num + "<br>");
 			}
-		}
+			num--; /* num = num -1; */
+		} 
 	</script>
 </body>
 
