@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>do while문 속도 조절하기</title>
+</head>
+<style>
+	body {
+		font-size: 50px;
+		color: red;
+	}
+
+	span {
+		color: blue;
+	}
+</style>
+
+<body>
+	<script>
+		let go = true;
+		let speed-0;
+		let gagam;
+		while (go) {
+			document.write("*********************<br>");
+			document.write("1.가속 / 2.감속 / 3.중지 <br>");
+			document.write("*********************<br>");
+
+			let choice = prompt("원하는 값을 입력하세요. 가속(1) / 감속(2) / 중지(3)", 1);
+
+			if (choice == 1) {
+				speed++;
+				gagam = "가속";
+
+			} else if (choice == 2) {
+				speed--;
+				gagam = "감속";
+
+			} else if (choice == 3) {
+				gagam = "중지";
+				document.write("<span>멈추었습니다</span><br>");
+				break;
+			} else {
+				document.write("<span>잘못 입력하셨습니다. [F5]키를 눌러 다시 실행하세요</span><br>");
+				go = false;
+			}
+			document.write("<span>현재 속도를 " + speed + "로" + gagam + </span > <br>");
+	</script>
+</body>
+
+</html>
