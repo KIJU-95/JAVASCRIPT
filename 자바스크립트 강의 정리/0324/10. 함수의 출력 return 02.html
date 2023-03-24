@@ -7,9 +7,10 @@
 	<script>
 		let sum = 0;
 		let count = 0;
+		let num;
 		function sample() {
 			do {
-				let num = prompt("숫자를 입력하세요(끝낼 때는 0)", "2");
+				num = prompt("숫자를 입력하세요(끝낼 때는 0)", "2");
 				sum += Number(num);
 				count++;
 			} while (num != 0);
