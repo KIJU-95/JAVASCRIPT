@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>while문 홀, 짝 색깔 칠하기 05</title>
+</head>
+<style>
+	body {
+		color: blue;
+	}
+
+	span {
+		color: red;
+	}
+</style>
+
+<body>
+	<script>
+		let sum = 0;
+		let num; /* 만약 아무 값도 num에 넣는 행동이 없이 num울 찍는다면 undefined를 출력한다 */
+		do {
+			num = prompt("숫자를 입력하세요(끝낼 때는 0)", "2");
+			sum += Number(num);
+		} while (num != 0);
+		document.write("입력한 모든 숫자의 합=" + sum);
+	</script>
+</body>
+
+</html>
