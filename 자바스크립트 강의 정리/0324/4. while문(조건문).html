@@ -14,16 +14,10 @@
 		let size = 1024;
 		let upload = 0;
 		while (upload <= size) {
+			document.write(upload + "M 업로드중.. <br>");
 			upload += 200;
-			if (upload == 1200) {
-				upload = 1024;
-				document.write(upload + "M 업로드중.. <br>");
-				upload = 1200;
-				/* upload += 1;  while문을 빠져나가기 위해 upload의 값을 1024보다 큰 값을 제공한다. */
-			} else {
-				document.write(upload + "M 업로드중.. <br>");
-			}
 		}
+	/* 	document.write("1024M 업로드중.. <br>"); */
 		document.write("업로드를 완료하였습니다");
 	</script>
 </body>
