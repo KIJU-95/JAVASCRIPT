@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>함수 활용 문제02 - 1부터 n까지의 홀수의 합</title>
+	<script>
+	
+	let sum = 0;
+		
+		function imNum(n) {
+			if ( n > 0 ) {
+				for ( let i = 1; i <= n; i++ ) {
+					if( i % 2 == 1) {
+						sum += i;
+					}
+				}
+				document.write("1부터 " + num + "까지의 홀수의 합 : " + sum );
+			} else {
+				alert("음수는 계산이 되지 않습니다. F5번 키를 눌러서 숫자를 다시 입력해주세요.");
+				document.write("음수는 계산이 되지 않습니다. F5번 키를 눌러서 숫자를 다시 입력해주세요.");
+			}
+		}
+		
+		let num = prompt("임의의 숫자를 입력해주세요.(양수)");
+		imNum(num);
+	</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
