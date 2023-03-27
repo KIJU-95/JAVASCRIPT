@@ -33,15 +33,27 @@
 			let arr3 = ['c', 'e', 'a', 'b', 'd'];
 			document.write(arr3 + "<br>");
 			document.write("내림차순 :");
-			function compare(a, b) { /* 내림차순 정렬 */
-				if (a > b) { //a - b = 값 (양수 값)을 출력한다면 a와 b값을 있는 순서 그대로 놔둔다.
+			function compare(a, b) { //내림차순 정렬
+				if (a > b) { //a - b = 값 (양수 값)을 출력한다면 a와 b값을 있는 순서 그대로 놔둔다
 					return -1; //그대로 
 				}
-				if (b < a) {  //a - b = -값 (음수 값)을 출력한다면 a와 b값의 순서를 바꾼다.
+				if (b < a) {  //a - b = -값 (음수 값)을 출력한다면 a와 b값의 순서를 바꾼다
 					return 1; //바꿈 
 				}
-				return 0; //a - b = 0이 나왔다면 같은 값이므로 있는 순서 그대로 놔둔다.
+				return 0; //a - b = 0이 나왔다면 같은 값이므로 있는 순서 그대로 놔둔다
 			}
+
+			// function compare(a, b) { //오름차순 정렬
+			// 	if (a > b) {//a-b = 값(양수값)을 출력한다면 a와 b값을 있는 순서 그대로 놔둔다
+			// 		return 1; //그대로
+			// 	}
+			// 	if (b > a) {//a-b = -값(음수값)을 출력한다면 a와 b값의 순서를 바꾼다
+			// 		return -1; //바꿈
+			// 	}
+			// 	return 0; ////a-b = 0이 나왔다면 같은 값이므로 있는 순서 그래로 놔둔다
+			// }
+
+			document.write(arr3.sort(compare));
 		</script>
 
 	</body>
