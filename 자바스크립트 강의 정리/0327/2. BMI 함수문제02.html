@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>몸무게 함수문제02</title>
+	<script>
+		function bmi(bb) {
+			if (bb < 18.5) {
+				document.write("당신의 BMI(체질량 지수)는 현재" + bb + "이며 <span>저체중</<span>입니다");
+			} else if (bb >= 18.5 && bb < 23) {
+				document.write("당신의 BMI(체질량 지수)는 현재" + bb + "이며 <span>정상</<span>입니다");
+			} else if (bb >= 23 && bb < 25) {
+				document.write("당신의 BMI(체질량 지수)는 현재" + bb + "이며 <span>과체중</<span>입니다");
+			} else if (bb >= 25 && bb < 30) {
+				document.write("당신의 BMI(체질량 지수)는 현재" + bb + "이며 <span>경도비만</<span>입니다");
+			} else {
+				document.write("당신의 BMI(체질량 지수)는 현재" + bb + "이며 <span>중도비만</<span>입니다");
+			}
+		}
+
+		let he = prompt("당신의 키는 얼마입니까? 예) 180cm이면 180을 입력하세요");
+		let wei = prompt("당신의 몸무게는 얼마입니까? 예) 70kg이면 70을 입력하세요");
+		let aa = parseInt / ((he / 100) * (he / 100));
+		bmi(aa); //함수의 호출
+	</script>
+	<style>
+		span {
+			color: red;
+			font-size: 50px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="./KakaoTalk_20230327_101939185.jpg">
+</body>
+
+</html>
