@@ -13,18 +13,24 @@
 	<body>
 
 		<script>
-/* 			//pop : 배열 끝점의 원소를 배열에서 제거한다
-			let arr = ['a', 'b', 'c', 'd', 'e'];
-			document.write(arr);
-			arr.pop('d', 'e'); //인덱스 번호 0:a, 1:b, 2:c, 3:d, 4:e, ----pop은 한 번에 하나씩 제거 가능..
-			document.write("<hr>");
-			document.write(arr); */
+			/* 			//pop : 배열 끝점의 원소를 배열에서 제거한다
+						let arr = ['a', 'b', 'c', 'd', 'e'];
+						document.write(arr);
+						arr.pop('d', 'e'); //인덱스 번호 0:a, 1:b, 2:c, 3:d, 4:e, ----pop은 한 번에 하나씩 제거 가능..
+						document.write("<hr>");
+						document.write(arr); */
 
-			let ar = [0,1,2,3];
-			document.write("ar = " + a + "<br>");
-			ar.push(100,200);
-			document.write("ar = " + a + "<br>");
+			let ar = [0, 1, 2, 3];
+			document.write("ar = " + ar + "<br>");
+			ar.push(100, 200);
+			document.write("ar = " + ar + "<br>");
 			ar.push(300);
+			document.write("ar = " + ar + "<br>");
+			ar.pop(); //300
+			document.write("ar = " + ar + "<br>");
+			ar.pop(); //200
+			ar.pop(); //100
+			document.write("ar = " + ar + "<br>");
 		</script>
 
 	</body>
