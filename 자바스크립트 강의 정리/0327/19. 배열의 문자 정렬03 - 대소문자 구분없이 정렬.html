@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>배열의 문자 정렬03 - 대소문자 구분없이 정렬</title>
+	<style type="text/css">
+
+	</style>
+
+	<head>
+
+	<body>
+
+		<script>
+			let country = ["korea", "Usa", "Japan", "China"];
+			document.write("before = " + country + "<br>");
+
+			country.sort(function (left, right) {
+				let left2 = left.toLowerCase();  //toLowerCase(); 영문자를 소문자로 바꾼다
+				let right2 = right.toLowerCase();
+				if (left2 < right2) return -1;
+				if (left2 > right2) return 1;
+				return 0;
+			});
+			document.write("after =" + country + "<br>");
+		</script>
+
+		<!-- 알파벳 대문자 U(85)는 알파벳 소문자 k(107)보다 아스키 코드값이 작다
+아스키 코드테이블 참조  -->
+
+
+	</body>
+
+</html>
