@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> 객체 - 멤버 추가 삭제 </title>
+</head>
+
+<body>
+
+	<!-- 자바스크립트는 인터프리터이며 객체의 내부가 키와 값의 쌍을 개수의 제약없이 저장하는
+해시로 되어 있으므로 실행중 추가/삭제가 가능하다
+
+추가 : 새로운 속성이 필요할 때 새로운 속성에 값을 대입
+삭제 : delete 명령 다음에 삭제할 속성을 지정
+상속받은 속성은 삭제할 수 없으며, 객체의 고유한 속성만 삭제가능 -->
+
+	<script>
+		var human = {
+			name: "슈퍼맨",
+			age: 29
+		};
+
+		human.salary = 520;
+		delete human.age;
+
+		document.write(human.name + "의 월급 : " + human.salary + "<br>");
+		document.write(human.name + "의 나이 : " + human.age + "<br>");
+	</script>
+
+	<!-- salary 새로이 추가
+	delete 연산자로 age 속성 삭제
+
+	속성뿐만 아니라 메서드도 실행중에 얼마든지 추가, 삭제 가능하다
+	이러다보니 처음부터 멤버를 미리 선언할 필요없이 빈 객체를 만든 후 멤버를 천천히 추가해도 됨 
+
+ex)
+var human{};
+
+human.name="슈퍼맨";
+human.age=29;
+
+-->
+
+
+</body>
+
+
+
+</html>
