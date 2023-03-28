@@ -5,6 +5,13 @@
 	<meta charset="utf-8">
 	<title> Date 객체07 / 시간 추가하기</title>
 </head>
+<style>
+	span {
+		color: red;
+		font-size: 50px;
+		font-weight: bold;
+	}
+</style>
 
 <body>
 	<script>
@@ -25,6 +32,18 @@
 			해당 결과없이 소수점을 포함한 실수값으로 나오므로 Math.ceil(실수값)을 하면 정수가 나온다 */
 
 
+
+		let today = new Date();
+		document.write("<h2>");
+		document.write("오늘부터 ");
+		document.write(today.getFullYear() + "년 ");
+		document.write((today.getMonth() + 10) + "월 ");
+		document.write((today.getDate() - 3) + "일 ");
+		document.write("크리스마스까지는 ");
+		document.write((today.getDay() + 270) + "일 ");
+		document.write("남았습니다. ");
+		document.write("여러분 " + "<span>미리 </span>" + "크리스마스입니다");
+		document.write("</h2>");
 	</script>
 
 </body>
