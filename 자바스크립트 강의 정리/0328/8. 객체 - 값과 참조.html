@@ -24,9 +24,17 @@
 	독같은 객체를 가리키는 다른 변수 하나가 더 생성된다
 	따라서 대입받은 객체를 변경하면 원본도 영향을 받는다 -->
 
-
 	<script>
+		var human = {
+			name: "배트맨",
+			age: 29
+		};
 
+		var kim = human;
+		kim.name = "김태희";
+
+		document.write("name =" + human.name + "<br>");
+		document.write("age =" + human.age + "<br>");
 	</script>
 
 </body>
