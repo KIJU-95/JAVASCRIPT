@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> 키코드값을 이용한 숫자만을 입력하게 하는 예제01 </title>
+</head>
+
+<body>
+
+	<script>
+		function num() { //숫자만을 기입받게 하는방법
+			if ((event.keyCode < 48) || (event.keyCode > 57)) {
+				//아스키 코드 48 : 숫자 0, 아스키 코드 57 : 숫자 9 &&논리곱
+				event.returnValue = false;
+			}
+		}
+	</script>
+
+
+</body>
+<form>
+	전화번호 <input type="text" size="10" name="tel" onkeypress="num();">
+</form>
+
+<!-- 영문은 입력은 안되고 숫자와 한글은 입력된다
+한글은 아스키 코드 테이블에 없다
+아스키 코드 테이블에 있는 것 중 숫자 이외에는 입력이 되지않는다
+
+event.keyCode는 javascript로 사용자의 키입력을 감지하여 함수를 처리 ASCII-->
+
+</html>
