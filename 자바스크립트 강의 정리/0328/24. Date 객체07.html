@@ -33,8 +33,12 @@
 
 
 
-		let today = new Date();
+		let today = new Date();    //현재 사용하고 있는 컴퓨터와 날짜 시간
+		let lastday = new Date(2023.11.25);      //11은 12월에 해당하는 인덱스 번호
 		document.write("<h2>");
+		let remain
+
+
 		document.write("오늘부터 ");
 		document.write(today.getFullYear() + "년 ");
 		document.write((today.getMonth() + 10) + "월 ");
