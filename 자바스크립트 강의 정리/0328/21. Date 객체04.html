@@ -3,28 +3,35 @@
 
 <head>
 	<meta charset="utf-8">
-	<title> Date 객체03 </title>
+	<title> Date 객체03 / if문 활용하기</title>
 </head>
 
 <body>
 	<script>
-		let birthday = new Date(1995, 2, 16);   //본인의 생년월일
-		document.write("<h2>");
-		document.write("당신의 생일은");
-		document.write(birthday.getFullYear() + "년");
-		document.write((birthday.getMonth() + 1) + "월");
-		document.write(birthday.getDate() + "일");
-		switch (birthday.getDay()) { //일 :0~토:6
-			case 0: var yoil = "<img src='../images/sun.gif'>"; break;
-			case 1: var yoil = "<img src='../images/mon.gif'>"; break;
-			case 2: var yoil = "<img src='../images/tue.gif'>"; break;
-			case 3: var yoil = "<img src='../images/wed.gif'>"; break;
-			case 4: var yoil = "<img src='../images/thu.gif'>"; break;
-			case 5: var yoil = "<img src='../images/fri.gif'>"; break;
-			case 6: var yoil = "<img src='../images/sat.gif'>"; break;
+		let week;
+		let today = new Date(2020, 4, 13);
+
+		if (today.getDay() == 0) {
+			week = "일";
+		} else if (today.getDay() == 1) {
+			week = "월";
+		} else if (today.getDay() == 2) {
+			week = "화";
+		} else if (today.getDay() == 3) {
+			week = "수";
+		} else if (today.getDay() == 4) {
+			week = "목";
+		} else if (today.getDay() == 5) {
+			week = "금";
+		} else {
+			week = "토";
 		}
-		document.write(yoil + "요일 입니다");
-		document.write("</h2>");
+
+		document.write("<h2>");
+		document.write("당신의 생일은" + today.getFullYear() + "년" + (today.getMonth() + 1)
+			+ "월" + today.getDate() + "일" + week + "요일 입니다");
+		document.write("</h2>")
+
 	</script>
 
 </body>
