@@ -33,6 +33,31 @@ with문은 {}블론안의 멤버명앞에 객체. 을 붙여주는 역활을 한
 
 
 
+<!-- 
+<script>
+	var human = {
+		name: "슈퍼맨",
+		age: 29
+	};
+
+	var name = "이순신",
+	with (human) {
+		document.write("name =" + name + "<br>");
+		document.write("age =" + age + "<br>");
+	}
+
+
+</script> -->
+
+<!-- 
+바깥쪽에 name이라는 별도의 변수가 선언되어 있으며 "이순신"으로 초기화
+with 블록을 쓰지 않았다면 name 표현식은 이 변수를 읽을 것이고
+human.name은 human 객체의 name 멤버르 읽을 것이다
+
+하지만 with 블록에서는 멤버를 우선적으로 참조하므로 그냥 name이라고 해서는 블록 외부의 name
+변수를 읽을 수 없다 -->
+
+
 
 </body>
 
