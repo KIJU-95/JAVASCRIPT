@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> 객체호출 with문 </title>
+</head>
+
+<body>
+
+	<!-- with(객체) { 
+	멤버 1=...
+	멤버 2=...
+}
+
+with문의 괄호안에 객체명을 미리 밝혀 놓으면 {}블록안에서 객체명 없이도 멤버를 자유롭게 읽을 수 있다
+with문은 {}블론안의 멤버명앞에 객체. 을 붙여주는 역활을 한다 -->
+
+
+	<script>
+		var human = {
+			name: "슈퍼맨",
+			age: 29
+		};
+
+		with(human) {
+			document.write("name =" + name + "<br>");
+			document.write("name =" + name + "<br>");
+		}
+
+
+	</script>
+
+
+
+
+</body>
+
+
+
+</html>
