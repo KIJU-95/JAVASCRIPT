@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> eval </title>
+</head>
+
+<body>
+
+	<script>
+		let word, num;
+		word = "3*5";    //문자열
+		num = "3*5";    //계산식
+		document.write("word=" + word + "<br>");
+		document.write("eval(word)=" + eval(word) + "<br>"); //문자열이 eval()함수를 통해 계산이 가능하게 되었다
+
+
+		document.write("num" + num + "<br>");
+		document.write("<hr>");
+		eval("var re" + "sult= 15"); //변수가 아니 문자열이지만..
+		document.write("result=" + result + "<br>"); //15를 출력한다. eval()을 통해 자바스크립트 구문으로 인식
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+
+</html>
