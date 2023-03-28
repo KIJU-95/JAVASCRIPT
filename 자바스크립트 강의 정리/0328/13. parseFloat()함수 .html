@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> parseFloat()함수 </title>
+</head>
+
+<body>
+
+	<script>
+		let num1, num2, num3;
+		num1 = "15.5" + 15.3; //15.515.3"
+		num2 = parseFloat("15.5") + 15.3; //30.8
+		num3 = parseFloat("'15.5' + 15.3"); //NaN
+		//num3=parseFloat("'15.5' + 15.3"); //15.5
+
+		document.write("1)" + num1 + "<p>");
+		document.write("2)" + num2 + "<p>");
+		document.write("3)" + num3 + "<p>"); //문자열을 정상적으로 실수로 바꾸지 못하면 NaN을 반환
+
+
+		document.write("<br><hr>");
+		document.write(parseFloat("15")); //15
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+
+</html>
