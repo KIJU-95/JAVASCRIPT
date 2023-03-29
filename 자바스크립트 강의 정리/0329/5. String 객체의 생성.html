@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> String 객체의 생성 </title>
+</head>
+
+<body>
+
+	<script>
+		let a = new String("korea"); //객체(object, 오브젝트)형
+		let b = "korea"; //문자(String)형
+
+		document.write("타입 =" + typeof (a) + ", 값 =" + a + ", 길이 =" + a.length + "<br>");
+		document.write("타입 =" + typeof (b) + ", 값 =" + b + ", 길이 =" + b.length + "<br>");
+		document.write("korea".length + "<br><br>");
+
+
+		document.write("==비교 :" + (a == b) + "<br>");   // ===오직 값만 비교하여 값이 같다면 참, 그렇지 않으면 거짓
+		document.write("==비교 :" + (a === b) + "<br>");   // ===값과 데이터형을 모두 비교하여 모두 같을 때만 참, 그렇지 않으면 거짓
+
+
+	</script>
+
+
+</body>
+
+</html>
