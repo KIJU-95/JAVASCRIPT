@@ -10,10 +10,8 @@
 
 	<script>
 		// 1) 11행 ~ 19행 현재 날짜와 현재 달에 1일의 날짜 객체를 생성합니다.
-		let date = new Date(); // 날짜 객체 생성 // date : 2023년 3월 29일
-		let y = date.getFullYear(); // 현재 연도 // y : 2023
-		let m = date.getMonth(); // 현재 월 --- 3월 이어서 2이 전달 // m : 2
-		let d = date.getDate(); // 현재 일 ---29일 // d: 29
+		let y = prompt("당신이 보고 싶은 달력의 년도를 입력하세요",2023);
+		let m = prompt("당신이 보고 싶은 달력의 월을 입력하세요",1)-1;
 
 		/*
 		 현재 월의 1일에 요일을 구합니다.
