@@ -1,26 +1,31 @@
-﻿<!doctype html>
+﻿
+<!doctype html>
 <html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title> String 객체 문제02  </title>
+		<style>
+		#ans{ font:30px 맑은고딕; }
+		</style>
+	</head>
+	<body>
+		<div id="ans">
 
-<head>
-	<meta charset="utf-8">
-	<title> String 객체 문제02 </title>
+		</div>
+		<script>
+			let name = prompt("이름을 영문으로 해주세요", "name");
+			let phoneNum = prompt("휴대폰 번호를 '-' 없이 입력해주세요", "01012345678" );
+			let phone1 = phoneNum.substring(0, 3);
+			let phone2 = phoneNum.substring(3, 7);
+			let phone3 = phoneNum.substring(7,11);
+			let last = "****";
+			let dash = "-";
 
-</head>
-
-<body>
-
-	<script>
-		let userName = prompt("당신의 영문 이름을 입력하세요");
-		let userPhone = prompt("당신의 전화번호를 '-' 없이 숫자만 입력하세요");
-
-		let upperName = userName.toUpperCase();
-		let result = userPhone.substing(0, 3).concat("-");
-		result += userPhone.substing(3, 7).concat("-****");
-
-		document.write("당신의 이름은 " + upperName + "이고, 당신의 전화번호는 " + result + "입니다");
-	</script>
-
-
-</body>
-
+			let phone = phone1.concat( dash + phone2 + dash + last);
+			
+			document.write("당신의 이름은 " +  name.toUpperCase() + "이고, 당신의 전화번호는 " + phone + "입니다");
+		</script>
+		
+	</body>
 </html>
+

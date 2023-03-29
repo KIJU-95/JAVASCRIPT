@@ -20,14 +20,17 @@
 			concat, prompt, substring, toUpperCase를 이용하세요..
 		</div> -->
 	<script>
-		let userName = prompt("당신의 영문 이름을 입력하세요");
-		let userPhone = prompt("당신의 전화번호를 '-' 없이 숫자만 입력하세요");
+
+		let userName = prompt("당신의 이름을 영문으로 적어주세요.");
+		let usePhone = prompt("당신의 전화번호를 - 없이 숫자만 적어주세요.");
 
 		let upperName = userName.toUpperCase();
-		let result = userPhone.substing(0, 3).concat("-");
-		result += userPhone.substing(3, 7).concat("-****");
+		let result = usePhone.substring(0, 3).concat("-");
+		result += usePhone.substring(3, 7).concat("-****");
 
-		document.write("당신의 이름은 " + upperName + "이고, 당신의 전화번호는 " + result + "입니다");
+
+		document.write("<h1>당신의 이름은 " + upperName + "이고, 당신의 전화번호는 " + result + "입니다.<h1>");
+
 	</script>
 
 
