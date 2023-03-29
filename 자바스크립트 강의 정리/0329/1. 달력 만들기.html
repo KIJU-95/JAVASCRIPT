@@ -3,78 +3,90 @@
 
 <head>
 	<meta charset="utf-8">
-	<title> 달력 만들기</title>
+	<title> 달력 만들기 </title>
 </head>
 
 <body>
+
 	<script>
-		//11행~19행 현재 날씨와 현재 달에 1일의 날짜 객체를 생성합니다
-		let date = new Date();    //날짜 객체 생성 2023년 3월 29일
-		let y = date.getFullYear();    //현재 연도
-		let m = date.getMonth();    //현재월 ----3월 이어서 2가 전달
-		let d = date.getDate();    //현재 일 ----29일
+		// 1) 11행 ~ 19행 현재 날짜와 현재 달에 1일의 날짜 객체를 생성합니다.
+		let date = new Date(); // 날짜 객체 생성 // date : 2023년 3월 29일
+		let y = date.getFullYear(); // 현재 연도 // y : 2023
+		let m = date.getMonth(); // 현재 월 --- 3월 이어서 2이 전달 // m : 2
+		let d = date.getDate(); // 현재 일 ---29일 // d: 29
 
-		// 현재 월의 1일에 요일을 구합니다
-		// 그럼 그 달 달력에 첫 번째 줄 빈칸의 개수를 구할 수 있습니다
+		/*
+		 현재 월의 1일에 요일을 구합니다.
+		 그럼 그달 달력에 첫번재 줄 빈칸의 개수를 구할수 있습니다
+		*/
+		let theDate = new Date(y, m, 1); // 해당날짜 지정// document.write(theDate); // Fri Jul 01 2016 00:00:00 GMT + 0900 // theDate : 2023, 2, 1
+		//    (대한민국 표준시) -- 2019년 12월 1일
+		let theDay = theDate.getDay(); // document.write(theDay); // 0: 일 123 ~ 6: 토 // theDay : 3(수요일)
 
-		let theDate = new Date(y, m, 1); //document.write(theDate);
-		/* Fri Jul 01 2016 00:00:00 GMT +0900 (대한민국 표준시)--2019년 12월 1일 */
-		let theDay = theDate.getDay();
-		//document.write(theDay);         0:일~6:토
+		// 2) 23행 ~ 30행 현재 월에 마지막 일을 구해야합니다.
+		let last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // 1월부터 12월까지 마지막 일을 배열로 저장함.
 
+		if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) lastDate = last[1] = 29; // 4의 배수와 100의배수 거나 400의 배수가 이거나
+		// theDate : 29
+		// 현재 연도가 윤년(4년 주기이고 100년 주기는 제외합니다.
+		// 또는 400년 주기)일경우 2월에 마지막 날짜는 29가 되어야 합니다.
 
-		//23행~30행 현재 월에 마지막 일을 구해야 합니다
-		let last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //1월부터 12월까지 마지막 일을 배열로 저장함.
+		let lastDate = last[m]; // 현재 월에 마지막이 몇일인지 구합니다 // lastDate : 31(3월의 마지막날)
 
-		if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) lastDate = last[1] = 29;
-		// 현재 연도가 윤년(4년 주기이고 100년 주기는 제외합니다 또는 400년 주기)일경우 2월에 마지막 날짜는 29가 되어야합니다
-		let lastDate = last[m];     //현재 월에 마지막이 몇일인지 구합니다
+		// 3) 35행 현재 월의 달력에 필요한 행의 개수를 구합니다.
+		// let row(행의 개수) = Math.cell((theDay(빈칸) + lastDate(월의 전체 일수)) / 7);
+		// Math.cell : 소수점 첫째 자리에서 무조건 올림해서 정수를 반환
 
-		/* 	35행 현재 월의 달력에 필요한 행의 개수를 구합니다
-			let row(행의 개수)= Math.ceil((theDay(빈칸) + lastDate(월의 전체일수)) / 7);
-			Math.ceil : 소수점 첫째 자리에서 무조건 올림해서 정수를 반환 */
+		let row = Math.ceil((theDay + lastDate) / 7); // 나온 결과값을 소수점 자리를 없앤후 정수값을 구하겠다 (자리올림) // Math.ceil() <- 올림
+		//필요한 행수 document.write(row); // 5 // (34/7=>을 올림 )
+		// 4) 달력 년도 / 월 표기 및 달력 테이블 생성
+		// document.write("<h1>" + y + (m + 1) + "월" + "</h1>");
+		let cap = "<h1>" + y + "년 " + (m + 1) + "월" + "</h1>";
 
-		let row = Math.ceil((theDay + lastDate) / 7);   //나온 결과값을 소수점 자리를 없앤 후 정수값을 구하겠다(자리올림)
-		/* 필요한 행수   document.write(row);   5 */
-
-		/* 	달력 년도/월 표기 및 달력 테이블 생성
-			document.write("<h1>" + y + "년" + (m+1) + "월" + "</h1>"); */
-		let cap = "<h1>" + y + "년" + (m + 1) + "월" + "</h1>";
-
-		let calendar = "<table border= '1' width= '400' height = '400'>";   //문자결합 연산자를 사용해 요일이 나오는 행을 생성합니다
-		calendar += "<caption>" + cap + "</caption>";
+		let calendar = "<table border = '1' width = '400' height = '400'>"; // 문자결합 연산자를 사용해 요일이 나오는 행을 생성합니다.
+		calendar += "<caption>" + cap + "</caption>"; // tr 나오기전에 caption적어야함. // cap : 2023년 3월
 		calendar += "<tr>";
-		calendar += "<th><font color='red'>일</font></th>";
+		calendar += "<th><font color = 'red'> 일 </font></th>";
 		calendar += "<th>월</th>";
 		calendar += "<th>화</th>";
 		calendar += "<th>수</th>";
 		calendar += "<th>목</th>";
 		calendar += "<th>금</th>";
-		calendar += "<th><font color='blue'>토</font></th>";
-		calendar += "</th>";
+		calendar += "<th><font color = 'blue'> 토 </font></th>";
+		calendar += "</tr>";
 
-		let dNum = 1; //달력에 입력할 날짜 숫자 1
-		//⑤ 달력 테이블 만들기
-		for (let i = 1; i <= row; i++) {          //행 생성 (tr 태그 생성)
+		let dNum = 1; // 달력에 입력할 날짜 숫자 1
+		// 5) 달력 테이블을 만들기
+
+		for (let i = 1; i <= row; i++) { // 행 생성 (tr 태그 생성)
 			calendar += "<tr>";
+			for (let k = 1; k <= 7; k++) { // 열 생성 (td 태그 생성)
 
-			for (let k = 1; k <= 7; k++) {         //열 생성 (td 태그 생성)
-
-				// 행이 첫 줄이고 현재 월의 1일의 요일 이전은 모두 빈열로
-				// 표기하고 날짜가 마지막 일보다 크면 빈열로 표기됩니다
-				if (i == 1 && k <= theDay || dNum > lastDate) {
-					//theDay : 5(금), lastDate(31)
+				/* 행이 첫 줄이고 현재 월의 1일의 요일 이전은 모두 빈열로 표기하고,
+				날짜가 마지막 일보다 크면 빈열로 표기됩니다. */
+				if (i == 1 && k <= theDay || dNum > lastDate) { // theDate: 5금, lastDate(31)
 					calendar += "<td> &nbsp; </td>";
 				} else {
-					calendar += "<td align='center'>" + dNum + "</td>";
-					dNum++; //달력에 입력할 날짜 숫자 증가
+					if (k == 1) { // 일요일이니?
+						// 글자색 빨강으로
+						calendar += "<th><font color = 'red'>" + dNum + "</font></th>";
+					} else if (k == 7) { // 토요일이니?
+						// 글자색 파랑
+						calendar += "<th><font color = 'blue'>" + dNum + "</font></th>";
+					} else {
+						calendar += "<td align = 'center'>" + dNum + " </td>"; // 글자색을 검은색으로 처리
+					}
+
+					dNum++; // 달력에 입력할 날짜 숫자 증가
 				}
+
 			}
 			calendar += "</tr>";
 		}
 		calendar += "</table>";
 		document.write(calendar);
 	</script>
+
 
 </body>
 
