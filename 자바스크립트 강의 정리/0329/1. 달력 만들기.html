@@ -8,7 +8,18 @@
 
 <body>
 	<script>
-		
+		//11행~19행 현재 날씨와 현재 달에 1일의 날짜 객체를 생성합니다
+		let date = new Date();    //날짜 객체 생성 2023년 3월 29일
+		let y = date.getFullYear();    //현재 연도
+		let m = date.getMonth();    //현재월 ----3월 이어서 2가 전달
+		let d = date.getDate();    //현재 일 ----29일
+
+		// 현재 월의 1일에 요일을 구합니다
+		// 그럼 그 달 달력에 첫 번째 줄 빈칸의 개수를 구할 수 있습니다
+
+		let theDate = new Date(y, m)
+
+
 
 
 
@@ -49,7 +60,7 @@
 
 				// 행이 첫 줄이고 현재 월의 1일의 요일 이전은 모두 빈열로
 				// 표기하고 날짜가 마지막 일보다 크면 빈열로 표기됩니다
-				if ( i == 1 && k <= theDay || dNum > lastDate) {    //the
+				if (i == 1 && k <= theDay || dNum > lastDate) {    //the
 
 				}
 			}
