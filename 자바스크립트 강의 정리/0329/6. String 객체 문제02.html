@@ -5,7 +5,9 @@
 	<meta charset="utf-8">
 	<title> String 객체 문제02 </title>
 	<style>
-		#ans { font: 30px 맑은고딕; }
+		#ans {
+			font: 30px 맑은고딕;
+		}
 	</style>
 </head>
 
@@ -15,18 +17,16 @@
 	</div>
 	<script>
 		let userName = prompt("당신의 영문 이름은?");
-		let useNum = prompt("당신의 연락처는? 숫자만 적어주세요");
+		let userNum = prompt("당신의 연락처는? 숫자만 적어주세요");
 
 		let upperName = userName.toUpperCase();    //영문을 대문자로 바꿉니다
-		let result = useNum.substring(0, 3).concat("-");   //substr(시작 인덱스, 길이)
-		result += useNum.substring(3, 7).concat("-");
-		let aa = useNum.substr(7,4);
+		let result = userNum.substring(0, 3).concat("-");   //substr(시작 인덱스, 길이)
+		result += userNum.substring(3, 4).concat("-");
+		let aa = userNum.substr(7, 4);
 		/* let aa = useNum.substr(7,11);  slice(시작문자 번호, 끝나는 문자 번호 -1) */
-		result ++= aa.replace(aa,"****"); /* 변수.replace(원본, 바꿀내용) */
-		result ++= aa.replace(aa,"****"); /* 변수.replace(원본, 바꿀내용) */
-		
-
-
+		result += aa.replace(aa, "****"); /* 변수.replace(원본, 바꿀내용) */
+		/* result += userNum.replace(userNum.substr(7,4),"****"); */
+		//010 - 9465- 0109465****
 		document.write("<h1>당신의 이름은 " + upperName + "이고, 당신의 전화번호는 " + result + "입니다.<h1>");
 	</script>
 
