@@ -19,25 +19,18 @@
 
 	<script>
 		var banner = new Array();
-		var rndn;
 
 		for (i = 0; i < 7; i++) {
 			banner[i] = "../images/pic" + (i + 1) + ".jpg";
 			document.write("<img src = '" + banner[i] + "' width='100'> ");
 		}
 
-		rndn = Math.floor(Math.random() * 10);
+		let randonNum = Math.ceil(Math.random() * 7); //1~7
 
-		if (rndn > 6) {
-			rndn = 6;
-		}
+		document.write("<h1><center>");
+		document.write("<img src ='../images/pic" + randonNum + ".jpg'>");
+		document.write("<h1><center>");
 
-
-		document.write("<br><br>");
-		document.write("<center><h1>banner [" + rndn + "]");
-		document.write("../images/pic" + (rndn + 1) + ".jpg</h1>");
-		document.write("<hr>");
-		document.write("<img src ='../images/pic" + (rndn + 1) + ".jpg' ></center> ");
 	</script>
 
 </body>

@@ -1,18 +1,38 @@
 ﻿<!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8">
-		<title> Math 객체 3-random-3 가위바위보 </title>
-		<style>
-			#ans{ font:30px 맑은고딕; }
-		</style>
-	</head>
-	<body>
-		<img src="../images/mat_img.png">	
-		<div id="ans">중복 if문과 random함수를 사용하고 나머지 필요한 함수가 있으면 각자 알아서 사용하세요.</div>
-		<script>
-			
-		</script>
 
-	</body>
+<head>
+	<meta charset="utf-8">
+	<title> Math 객체 3-random-3 가위바위보 </title>
+	<style>
+		#ans {
+			font: 30px 맑은고딕;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="../images/mat_img.png">
+	<div id="ans">컴퓨터 가위(1), 바위(2), 보(3) 맞추기</div>
+	<script>
+
+		
+		let randonNum = Math.ceil(Math.random() * 3);
+		/* let game = prompt("게임을 하시겠습니까? 1-가위, 2-바위, 3-보", "1");
+ */
+		document.write("<h1><left>");
+		document.write("<img src ='../images/math_img_" + randonNum + ".jpg'>");
+
+
+// document.write("당신이" + <> + "를 내서" + <> + "졌습니다, 그러나 실망하지마세요");
+// document.write("당신이" + <> + "를 내서" + <> + "이겼습니다");
+
+
+
+
+
+	</script>
+
+</body>
+
 </html>
