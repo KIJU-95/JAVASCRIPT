@@ -12,30 +12,25 @@
 </head>
 
 <body>
-	<!-- 	<div id="ans">
-		방문객에게 이름을 영문으로 입력받은 후<br>
-		무조건 대문자로 바꿔 출력하고, <br>
-		핸드폰번호를 "-"없이 숫자만 입력받아<br>
-		맨 뒷자리 4개의 숫자는 "*"로 표시하시오.<br><br>
-
-		ex) parkdohoon ---&gt; PARKDOHOON<br>
-
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01094654088 ---&gt; 010 - 9465 - ****<br>
-
-		concat, prompt, substring, toUpperCase를 이용하세요..
-	</div> -->
+	<!-- <div id="ans">
+			방문객에게 이름을 영문으로 입력받은 후<br> 
+			무조건 대문자로 바꿔 출력하고, <br>
+			핸드폰번호를 "-"없이 숫자만 입력받아<br> 
+			맨 뒷자리 4개의 숫자는 "*"로 표시하시오.<br><br>
+			ex) parkdohoon ---&gt; PARKDOHOON<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01094654088 ---&gt;  010 - 9465 - ****<br>
+			concat, prompt, substring, toUpperCase를 이용하세요..
+		</div> -->
 	<script>
-		let a = "korea";
-		let b = new String("korea");
 
-		let name = prompt("당신의 이름을 입력하세요");
-		let number = prompt("당신의 번호를 입력하세요");
+		let name = prompt("당신의 이름을 영문으로 적어주세요.");
+		let phone = prompt("당신의 전화번호를 - 없이 숫자만 적어주세요.");
+		let hyphen = "-";
+		let num = "";
 
-		document.write("당신의 이름은" + a + "이고, ");
-		document.write("t.toUpperCase() : " + t.toUpperCase(), "<br>");
 
-		document.write("당신의 전화번호는" + b + "입니다");
-		document.write("⑨ t.substring(6,12) : " + t.substring(6,12),"<br>");
+		document.write("<h1>당신의 이름은 " + name.toUpperCase() + "이고, 당신의 전화번호는 "
+			+ num.concat(phone.substring(0, 3), hyphen, phone.substring(3, 7), hyphen, phone.substring(7, 11)) + "입니다.<h1>");
 
 	</script>
 
