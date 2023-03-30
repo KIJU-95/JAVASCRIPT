@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> 주사위 횟수 문제 </title>
+	<style>
+		#ans {
+			font: 30px "맑은 고딕";
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="ans">
+		총 25번을 무작위로 주사위를 추출하여 각 번호마다 나온 횟수를 정리하여 나타내시오
+	</div>
+
+
+	<script>
+		let randonNum = Math.ceil(Math.random() * 6);
+		let date = new Date();
+		let y = date.getFullYear();
+		let m = date.getMonth();
+		let d = date.getDate();
+
+		let theDate = new Date(y, m, 1);
+
+		let theDay = theDate.getDay();
+
+		let last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+		if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) lastDate = last[1] = 29;
+
+		let lastDate = last[m];
+
+		let row = Math.ceil((theDay + lastDate) / 7);
+		let cap = "<h1>" + y + "년 " + (m + 1) + "월" + "</h1>";
+
+		let calendar = "<table border = '1' width = '400' height = '400'>";
+		calendar += "<caption>" + cap + "</caption>";
+		calendar += "<tr>";
+		calendar += "<th><img src ='../images/dice-" + randonNum + ".png' width = '30' height = '30' ></th>";
+		calendar += "<th>월</th>";
+		calendar += "<th>화</th>";
+		calendar += "<th>수</th>";
+		calendar += "<th>목</th>";
+		calendar += "<th>금</th>";
+		calendar += "<th><font color = 'blue'> 토 </font></th>";
+		calendar += "</tr>";
+
+		let dNum = 1;
+
+		for (let i = 1; i <= row; i++) {
+			calendar += "<tr>";
+			for (let k = 1; k <= 7; k++) {
+
+				if (i == 1 && k <= theDay || dNum > lastDate) {
+					calendar += "<td> &nbsp; </td>";
+				} else {
+					if (k == 1) {
+						calendar += "<th><font color = 'red'>" + dNum + "</font></th>";
+					} else if (k == 7) {
+						calendar += "<th><font color = 'blue'>" + dNum + "</font></th>";
+					} else {
+						calendar += "<td align = 'center'>" + dNum + " </td>";
+					}
+
+					dNum++;
+				}
+
+			}
+			calendar += "</tr>";
+		}
+		calendar += "</table>";
+		document.write(calendar);
+
+	</script>
+
+</body>
+
+</html>
