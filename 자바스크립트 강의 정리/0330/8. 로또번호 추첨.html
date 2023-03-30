@@ -1,76 +1,75 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
+<html lang="ko">
 
 <head>
 	<meta charset="utf-8">
-	<title>로또추첨기</title>
+	<title> 로또 번호 추첨 </title>
 	<style>
-		.ball {
-			display: inline-block;
-			background-color: orange;
-			border-radius: 20px;
-			width: 40px;
-			height: 40px;
-			line-height: 40px;
-			font-size: 20px;
+		span {
+			border: 2px solid #000;
+			font-size: 40px;
+			display: block;
+			width: 100px;
+			padding: 20px 0;
+			float: left;
+			margin: 10px;
 			text-align: center;
-			margin-right: 20px;
-			color: white;
+			border-radius: 100%;
 		}
 
-		.ball02 {
-			display: inline-block;
-			background-color: grey;
-			border-radius: 20px;
-			width: 40px;
-			height: 40px;
-			line-height: 40px;
-			font-size: 20px;
-			text-align: center;
-			margin-right: 20px;
-			color: white;
+		.n1 {
+			background-color: skyblue;
+		}
+
+		.n2 {
+			background-color: pink;
+		}
+
+		.n3 {
+			background-color: lightgreen;
+		}
+
+		.n4 {
+			background-color: orange;
+		}
+
+		.n5 {
+			background-color: yellow;
 		}
 	</style>
-
 </head>
 
 <body>
-	<div id="result">로또 번호 추첨 결과는? </div>
-	<div id="bonus">보너스 : </div>
+	<script>
+		var num = [];
+		var numWin = [];
+		for (let i = 1; i <= 45; i++) {
+			num.push(i);
+		}
+
+		document.write("<h1>************로또 추첨 번호************</h1>");
+
+		for (let j = 0; j < 7; j++) {
+			let indexNum = Math.floor(Math.random() * num.length);
+			numWin.push(num[indexNum]);
+			num.splice(indexNum, 1);
+		}
+
+		for (let k = 0; k < 7; k++) {
+			if (numWin[k] >= 1 && numWin[k] < 10) {
+				document.write("<span class='n1'>" + numWin[k] + "</span>")
+			} else if (numWin[k] >= 10 && numWin[k] < 20) {
+				document.write("<span class='n2'>" + numWin[k] + "</span>")
+			} else if (numWin[k] >= 20 && numWin[k] < 30) {
+				document.write("<span class='n3'>" + numWin[k] + "</span>")
+			} else if (numWin[k] >= 30 && numWin[k] < 40) {
+				document.write("<span class='n4'>" + numWin[k] + "</span>")
+			} else {
+				document.write("<span class='n5'>" + numWin[k] + "</span>")
+			}
+		}
+
+	</script>
 </body>
 
-<script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const result = document.querySelector("#result");
-		const bonus = document.querySelector("#bonus");
-		const numbers = new Array(45).fill().map((a, i) => i + 1);
-		let selectNum = [];
-
-		// 번호 무작위 출력
-
-		for (let i = 1; i < 8; i++) {
-			let number = Math.floor(Math.random() * numbers.length);
-			let randomNum = numbers.splice(number, 1);
-			selectNum.push(randomNum);
-		}
-
-		const bonusNum = selectNum.splice(6, 1); // 보너스 숫자
-		const winNums = selectNum.sort((a, b) => a - b); // 당첨 숫자
-
-		for (let i = 0; i < winNums.length; i++) {
-			setTimeout(() => {
-				const ball = document.createElement('div');
-				ball.className = 'ball';
-				ball.textContent = winNums[i];
-				result.append(ball);
-			}, 1000 * (i + 1));
-		}
-
-		setTimeout(() => {
-			const bonusBall = document.createElement('div');
-			bonusBall.className = 'ball02';
-			bonusBall.textContent = bonusNum;
-			bonus.append(bonusBall);
-		}, 7000);
-
-	});
-</script>
+</html>
