@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> 주사위 횟수 문제03 </title>
+	<style>
+		#ans {
+			font: 30px "맑은 고딕";
+		}
+
+		span {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="ans">
+		총 25번을 무작위로 주사위를 추출하여 각 번호마다 나온 횟수를 정리하여 나타내시오
+	</div>
+
+
+	<script>
+		let table = "<table border = '1' width = '350' height = '350'>";    //테이블 시작태그
+		let sum = 0; //주사위의 눈금 합계를 담을 변수
+
+		for (row = 1; row <= 5; row++) {  //5행
+			table += "<tr>"; //행 시작 태그
+
+			for (col = 1; col <= 5; col++) {   //5열
+				let num = Math.ceil(Math.random() * 6);   //주사위 눈이 최대 6개 이므로
+				table += "<tH><img src= '../images/dice-" + num + ".png' width = '50'></th>";
+
+				sum += num; //새로운 눈금을 눈적
+			}
+			table += "</tr>";
+		}
+
+		table += "</table><hr>";
+		document.write(table);
+
+		document.write("<h2>주사위를 총 25번 던진 결과 주사위의 총 눈금의 합은 <span>" + sum + "</span>입니다</h2>");
+		document.write("다시 실행하시려면 F5키를 눌러 주세요");
+
+	</script>
+
+</body>
+
+</html>
