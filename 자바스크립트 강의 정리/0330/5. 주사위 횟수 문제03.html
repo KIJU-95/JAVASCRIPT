@@ -23,23 +23,47 @@
 
 
 	<script>
-		let table = "<table border = '1' width = '350' height = '350'>";    //테이블 시작태그
-		let sum = 0; //주사위의 눈금 합계를 담을 변수
+		let one = 0; two = 0; three = 0; four = 0; five = 0; six = 0;
 
-		for (row = 1; row <= 5; row++) {  //5행
-			table += "<tr>"; //행 시작 태그
+		let table = "<table border = '1' width = '350' height = '350'>";
+		let sum = 0;
 
-			for (col = 1; col <= 5; col++) {   //5열
-				let num = Math.ceil(Math.random() * 6);   //주사위 눈이 최대 6개 이므로
+		for (row = 1; row <= 5; row++) {
+			table += "<tr>";
+
+			for (col = 1; col <= 5; col++) {
+				let num = Math.ceil(Math.random() * 6);
 				table += "<tH><img src= '../images/dice-" + num + ".png' width = '50'></th>";
 
-				sum += num; //새로운 눈금을 눈적
+				switch (num) {
+					case 1:
+						one += 1; break;
+					case 2:
+						two += 1; break;
+					case 3:
+						three += 1; break;
+					case 4:
+						four += 1; break;
+					case 5:
+						five += 1; break;
+					case 6:
+						six += 1; break;
+				}
+
+				sum += num;
 			}
 			table += "</tr>";
 		}
 
 		table += "</table><hr>";
 		document.write(table);
+
+		document.write("주사위 눈금 1은 총" + one + "번 나왔고,<br>");
+		document.write("주사위 눈금 2는 총" + two + "번 나왔고,<br>");
+		document.write("주사위 눈금 3은 총" + three + "번 나왔고,<br>");
+		document.write("주사위 눈금 4는 총" + four + "번 나왔고,<br>");
+		document.write("주사위 눈금 5는 총" + five + "번 나왔고,<br>");
+		document.write("주사위 눈금 6은 총" + six + "번 나왔습니다,<br>");
 
 		document.write("<h2>주사위를 총 25번 던진 결과 주사위의 총 눈금의 합은 <span>" + sum + "</span>입니다</h2>");
 		document.write("다시 실행하시려면 F5키를 눌러 주세요");
