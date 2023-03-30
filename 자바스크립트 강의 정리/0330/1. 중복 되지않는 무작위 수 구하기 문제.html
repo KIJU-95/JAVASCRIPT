@@ -18,16 +18,17 @@
 <body>
 	<script>
 
-
-
-
-
-
-
-
-
-
-
+		let arr = [];
+		for (let i = 0; i < 5; i++); {
+			let num = Math.floor(Math.random() * 9) + 1; // 1에서 9 사이의 난수 생성
+			if (arr.indexOf(num) === -1) { // 숫자가 이미 배열에 있는지 확인
+				arr.push(숫자); // 아직 배열에 없으면 숫자를 배열에 추가합니다.
+			} else {
+				i--; // 중복 숫자가 그려진 경우 루프 변수를 감소시킵니다.
+			}
+		}
+		arr.sort((a, b) => a - b); // 배열을 오름차순으로 정렬
+		console.log(arr); // 배열을 콘솔에 출력
 
 	</script>
 
