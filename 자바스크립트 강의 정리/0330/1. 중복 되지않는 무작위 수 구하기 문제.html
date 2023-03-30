@@ -4,7 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<title> 중복 되지않는 무작위 수 구하기 문제 </title>
-
+	<style>
+		p {
+			color: red;
+			font-weight: bold;
+			font-size: 30px;
+		}
+	</style>
 </head>
 
 <!-- 1~9사이에 중복되지 않는 수 5개를 표시하시오
@@ -18,17 +24,25 @@
 <body>
 	<script>
 
-		let arr = [];
-		for (let i = 0; i < 5; i++); {
-			let num = Math.floor(Math.random() * 9) + 1; // 1에서 9 사이의 난수 생성
-			if (arr.indexOf(num) === -1) { // 숫자가 이미 배열에 있는지 확인
-				arr.push(숫자); // 아직 배열에 없으면 숫자를 배열에 추가합니다.
-			} else {
-				i--; // 중복 숫자가 그려진 경우 루프 변수를 감소시킵니다.
-			}
+		let numbers = [];    //숫자 1~9까지 담을 배열
+		let newNumbers = [];  //뽑은 5개의 숫자를 담을 배열
+
+		for (let i = 1; i < 9; i++) {
+			numbers.push(i);
 		}
-		arr.sort((a, b) => a - b); // 배열을 오름차순으로 정렬
-		console.log(arr); // 배열을 콘솔에 출력
+
+		for (let k = 0; k < 5; k++) {
+			let indexNum = Math.floor(Math.random() * numbers.length);   //0~8
+			newNumbers.push(numbers[indexNum]);
+			numbers.splice(indexNum, 1);  //numbers배열에서 해당
+			/* 인덱스번호(indexNum)를 지운다 */
+
+
+			document.write("<p>");
+			document.write(newNumbers + "&nbsp;&nbsp;&nbsp; --SORT 후--> &nbsp;&nbsp;&nbsp;");
+			document.write(newNumbers.sort());  //sort() : 안에 있는 데이터들을 오름차순 정렬시킴
+			document.write("</p>");
+		}
 
 	</script>
 
