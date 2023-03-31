@@ -22,19 +22,14 @@
 	<script>
 		var arr = ["../images/lemonbalm2.jpg", "../images/sunflower.jpg", "../images/herbtea3.jpg"];
 
-
 		let index = 0;
 		setTimeout(changeImg1, 2000); //2초후에 changeImg1 함수 호출
 
 		function changeImg1() {
 			let img2 = document.getElementById("img2");
-			//img2.src=arr[index++];
-			img2.src = arr[index];
+			img2.src = arr[index % arr.length];
 			index++;
-			if (index >= 3) {
-				index - 0;
-			}
-			// setTimeout(changeImg1,2000); 이 줄이 없으면 다시 호출하지 않아 처음 herbtea3.jpg에서 lemonbalm2.jpg으로 한번 바뀌고
+			setTimeout(changeImg1, 2000);/*  이 줄이 없으면 다시 호출하지 않아 처음 herbtea3.jpg에서 lemonbalm2.jpg으로 한번 바뀌고 */
 			// 더이상 호출이 되지않아 끝난다
 		}
 	</script>
