@@ -1,20 +1,21 @@
 ﻿<!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8">
-		<title> BOM(Browser Object Model)-window의 창 관리 </title>
-	</head>
 
-	<body>
-		<script>
-			function openChild() {
-				window.open("http://www.google.com", " ", "width=400, height=300, resizable=no scrollbars=yes");
-			}
-		</script>
-		<input type="button" value="Open" onclick="openChild()" />
+<head>
+	<meta charset="utf-8">
+	<title> BOM(Browser Object Model)-window의 창 관리 </title>
+</head>
+
+<body>
+	<script>
+		function openChild() {
+			window.open("http://www.google.com", " ", "width=400, height=300, resizable=no scrollbars=yes");
+		}
+	</script>
+	<input type="button" value="Open" onclick="openChild()" />
 
 
-		<!-- 
+	<!-- 
 				---- 결과 ----
 					open 버튼을 클릭하면 구글 홈페이지창을 400x300의 새로운 창에 연다.
 					만약 크기를 생략하면 부모 브라우저와 같은 크기로 열린다.
@@ -25,7 +26,7 @@
 					IE, 크롬, 오페라 - 스크롤 바 표시
 					파이어폭스 - 스크롤 바 표시 X
 		-->
-<!--
+	<!--
 새로운창 열기, 4개의 인수가 있지만 모두 옵션이며 꼭 필요한 인수만 쓰면 된다.
 
 	open(URL, name, specs, replace)
@@ -60,5 +61,6 @@ close ----------------------		닫기 버튼 표시  -------------	yes
 fullscreen -----------------	전체 화면 모드로 열기  -----	no
 
 	-->
-	</body>
+</body>
+
 </html>
