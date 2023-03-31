@@ -1,26 +1,27 @@
 ﻿<!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8">
-		<title> BOM(Browser Object Model)-window </title>
-		
-	</head>
 
-	<body onLoad="aaa()">
-		<script>
-document.write("name = " + name + "<br>");
-document.write("closed = " + closed + "<br>");
-document.write("outer = " + outerWidth + " * " + outerHeight + "<br>");
-document.write("inner = " + innerWidth + " * " + innerHeight + "<br>");
-document.write("screen = " + screenLeft + " * " + screenTop + "<br>");
-function aaa() {
-	defaultStatus = "*^__^* 자바스크립트를 열심히 공부하고 있습니다. *^__^*";
-}
-		</script>
-		
-		
-		
-		<!-- 
+<head>
+	<meta charset="utf-8">
+	<title> BOM(Browser Object Model)-window </title>
+
+</head>
+
+<body onLoad="aaa()">
+	<script>
+		document.write("name = " + name + "<br>");
+		document.write("closed = " + closed + "<br>");
+		document.write("outer = " + outerWidth + " * " + outerHeight + "<br>");
+		document.write("inner = " + innerWidth + " * " + innerHeight + "<br>");
+		document.write("screen = " + screenLeft + " * " + screenTop + "<br>");
+		function aaa() {
+			defaultStatus = "*^__^* 자바스크립트를 열심히 공부하고 있습니다. *^__^*";
+		}
+	</script>
+
+
+
+	<!-- 
 				---- 결과 ----
 			      크롬
 				 name = 
@@ -29,7 +30,7 @@ function aaa() {
 				inner = 1680 * 925
 				screen = 0 * 0
 		-->
-<!--
+	<!--
 		BOM은 브라우저 제작사가 제공하는 것이어서 브라우저마다 약간씩 기능이 다르다.
 		BOM의 최상위 객체인 window는 곧 브라우저를 의미하며 웹페이지 전체를 상징한다.
 		루트 객체인 window는 브라우저 실행과 동시에 자동으로 생성되므로 따로 만들 필요없이 언제든지 사용할 수 있다.
@@ -53,5 +54,6 @@ function aaa() {
 		self -------------------------	현재 윈도우를 리턴
 		top -------------------------	최상위 브라우저 윈도우를 리턴
 	-->
-	</body>
+</body>
+
 </html>
