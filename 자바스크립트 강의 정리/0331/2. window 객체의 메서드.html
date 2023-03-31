@@ -1,37 +1,38 @@
 ﻿<!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8">
-		<title> BOM(Browser Object Model)-window의 메서드 </title>
-	</head>
 
-	<body>
-		<script>
-			function test() {
-				moveTo(100, 100);
-			}
-			
-			function test2() {
-				moveBy(10, 10);
-			}
-			
-			function test3() {
-				resizeTo(300, 400); // 300, 400 사이즈
-			}
-			
-			function test4() {
-				resizeBy(200, 300);  // 500, 700 사이즈
-			}
-		</script>
-	<input type="button" value="moveTo" onclick="test()" /> 
-	<input type="button" value="moveBy" onclick="test2()" /> 
-	<input type="button" value="resizeTo" onclick="test3()" /> 
-	<input type="button" value="resizeBy" onclick="test4()" /> 
-		<!-- 
+<head>
+	<meta charset="utf-8">
+	<title> BOM(Browser Object Model)-window의 메서드 </title>
+</head>
+
+<body>
+	<script>
+		function test() {
+			moveTo(100, 100);
+		}
+
+		function test2() {
+			moveBy(10, 10);
+		}
+
+		function test3() {
+			resizeTo(300, 400); // 300, 400 사이즈
+		}
+
+		function test4() {
+			resizeBy(200, 300);  // 500, 700 사이즈
+		}
+	</script>
+	<input type="button" value="moveTo" onclick="test()" />
+	<input type="button" value="moveBy" onclick="test2()" />
+	<input type="button" value="resizeTo" onclick="test3()" />
+	<input type="button" value="resizeBy" onclick="test4()" />
+	<!-- 
 				---- 결과 ----
 				IE를 제외한 대부분의 브라우저는 보안상의 이유로 메인 브라우저(부모 브라우저)의 이동과 크기 조절을 금지한다.
 		-->
-<!--
+	<!--
 		
   메서드                                     설명
 closed() --------------------	현재 윈도우를 닫는다.
@@ -49,5 +50,6 @@ print() -----------------------	윈도의 내용물을 프린터로 인쇄한다
 By                     : 현재값에서 상대적인 값을 사용
 				    
 -->
-	</body>
+</body>
+
 </html>
