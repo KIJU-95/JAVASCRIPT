@@ -5,7 +5,22 @@
 	<meta charset="utf-8">
 	<title> 로또 번호 추첨 </title>
 	<style>
-		span {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/* span {
 			border: 2px solid #000;
 			font-size: 40px;
 			display: block;
@@ -35,39 +50,55 @@
 
 		.n5 {
 			background-color: yellow;
-		}
+		} */
 	</style>
 </head>
 
 <body>
 	<script>
-		var num = [];
-		var numWin = [];
-		for (let i = 1; i <= 45; i++) {
-			num.push(i);
-		}
 
-		document.write("<h1>************로또 추첨 번호************</h1>");
 
-		for (let j = 0; j < 7; j++) {
-			let indexNum = Math.floor(Math.random() * num.length);
-			numWin.push(num[indexNum]);
-			num.splice(indexNum, 1);
-		}
 
-		for (let k = 0; k < 7; k++) {
-			if (numWin[k] >= 1 && numWin[k] < 10) {
-				document.write("<span class='n1'>" + numWin[k] + "</span>")
-			} else if (numWin[k] >= 10 && numWin[k] < 20) {
-				document.write("<span class='n2'>" + numWin[k] + "</span>")
-			} else if (numWin[k] >= 20 && numWin[k] < 30) {
-				document.write("<span class='n3'>" + numWin[k] + "</span>")
-			} else if (numWin[k] >= 30 && numWin[k] < 40) {
-				document.write("<span class='n4'>" + numWin[k] + "</span>")
-			} else {
-				document.write("<span class='n5'>" + numWin[k] + "</span>")
-			}
-		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// var num = [];
+		// var numWin = [];
+		// for (let i = 1; i <= 45; i++) {
+		// 	num.push(i);
+		// }
+
+		// document.write("<h1>************로또 추첨 번호************</h1>");
+
+		// for (let j = 0; j < 7; j++) {
+		// 	let indexNum = Math.floor(Math.random() * num.length);
+		// 	numWin.push(num[indexNum]);
+		// 	num.splice(indexNum, 1);
+		// }
+
+		// for (let k = 0; k < 7; k++) {
+		// 	if (numWin[k] >= 1 && numWin[k] < 10) {
+		// 		document.write("<span class='n1'>" + numWin[k] + "</span>")
+		// 	} else if (numWin[k] >= 10 && numWin[k] < 20) {
+		// 		document.write("<span class='n2'>" + numWin[k] + "</span>")
+		// 	} else if (numWin[k] >= 20 && numWin[k] < 30) {
+		// 		document.write("<span class='n3'>" + numWin[k] + "</span>")
+		// 	} else if (numWin[k] >= 30 && numWin[k] < 40) {
+		// 		document.write("<span class='n4'>" + numWin[k] + "</span>")
+		// 	} else {
+		// 		document.write("<span class='n5'>" + numWin[k] + "</span>")
+		// 	}
+		// }
 
 	</script>
 </body>
