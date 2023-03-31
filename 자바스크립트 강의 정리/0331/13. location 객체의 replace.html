@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> location 객체의 replace </title>
+</head>
+
+<body>
+
+	<!-- location 객체의 메서드
+
+	reload() : 현재 문서를 다시 읽어 옴
+	replace() : 현재 문서를 다른 URL로 바꾸어줌
+ -->
+
+
+	<script>
+		function re() {
+			location.replace("http://www.google.co.kr")
+		}
+
+	</script>
+	<form>
+		<input type="button" value="이동" onclick="re()"> <!-- replace() : 현재 문서를 다른 URL로 바꾸어줌 -->
+	</form>
+</body>
+
+</html>
