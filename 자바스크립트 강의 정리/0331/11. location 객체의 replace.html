@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title> location 객체의 replace </title>
+</head>
+
+<body>
+
+	<!-- location 객체의 메서드
+
+	reload() : 현재 문서를 다시 읽어 옴
+	replace() : 현재 문서를 다른 URL로 바꾸어줌
+ -->
+
+
+	<script>
+		function re() {
+			location.replace("http://www.google.co.kr")
+		}
+
+	</script>
+	<form>
+		<input type="button" value="이동" onclick="re()"> <!-- replace() : 현재 문서를 다른 URL로 바꾸어줌 -->
+	</form>
+
+
+	<!-- 
+location 객체는 window 객체의 하위 객체로 그 이름에서도 알 수 있듯이 브라우저의 주소 표시줄과 관련되어있다
+현재 문서의 URL주소에 대한 정보가 들어 있는데 이 정보를 편집하면 현재 브라우저 창에 열릴 홈페이지나
+문서를 지정할 수 있다
+
+location 객체에는 여러가지 프로퍼티가 있는데 주로 사용하는 프로퍼티는 현재 문서의 URL주소를 저장하는
+hreg 프로퍼티와 링크의 경로 이름을 저장하는 pathname 정도이다
+
+다음은 location 객체의 프로퍼티(속성)이다
+
+hash ------------  책갈치를 지정한다 즉, 앵커부분을 조사한다
+host ------------ url과 호스트 이름, 포트번호를 지정
+hostname ------------url과 호스트 이름을 지정
+href ------------url을 지정 전체 url을 조사한다
+pathname ------------링크의 경로를 지정
+port ------------포트번호를 지정
+protocol ------------프로토콜 종류를 지정
+search ------------ 검색엔진은 호출 쿼리부분을 조사한다
+-->
+
+
+</body>
+
+</html>
