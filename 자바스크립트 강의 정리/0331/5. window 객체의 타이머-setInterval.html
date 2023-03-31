@@ -1,11 +1,12 @@
 ﻿<!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8">
-		<title> BOM(Browser Object Model)-window의 타이머-setInterval</title>
-	</head>
 
-	<body>
+<head>
+	<meta charset="utf-8">
+	<title> BOM(Browser Object Model)-window의 타이머-setInterval</title>
+</head>
+
+<body>
 	<!--
 		타이머	: 주기적으로 특정 코드를 실행함으로써 반복적인 작업을 처리하는 장치
 				  이미지를 주기적으로 교체하여 애니메이션을 실행. 서버의 상태를 계속적으로 모니터링 가능
@@ -28,20 +29,20 @@
 				
 			중간에 타이머를 제거하려면 설치할 때 리턴되는 ID를 별도의 변수에 반드시 저장해 두어야 한다.			
 	-->
-			
-		<p id="nowtime">현재 시간</p>
-		<script>
-			function timer() {
-				var nowTime=document.getElementById("nowtime");
-				nowTime.innerHTML = (new Date()).toLocaleString();
-			}
-						
-			setInterval("timer()", 1000); 
-			//setInterval(timer, 1000);	// 1초에 한 번씩 timer() 함수를 호출.
-			
-		</script>
 
-		<!-- 
+	<p id="nowtime">현재 시간</p>
+	<script>
+		function timer() {
+			var nowTime = document.getElementById("nowtime");
+			nowTime.innerHTML = (new Date())/* .toLocaleString() */;
+		}
+
+		setInterval("timer()", 1000);
+			//setInterval(timer, 1000);	// 1초에 한 번씩 timer() 함수를 호출.
+
+	</script>
+
+	<!-- 
 				---- 결과 ----
 					현재 시간이 1초단위로 계속 갱신이 된다.
 					
@@ -69,5 +70,6 @@
 			이때 함수에 이름이 없으므로 강제로 호출할 수 없어 1초간 기다려야 시간이 갱신된다.
 		-->
 
-	</body>
+</body>
+
 </html>
