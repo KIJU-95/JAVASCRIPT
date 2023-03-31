@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title> 로또 번호 추첨볼 구하기2  </title>
+		<style>
+			span { display:inline-block; margin-right:10px; font:bold 30px arial; color:#fff; width:60px; height:60px; text-align:center; line-height:60px; border-radius:50%; }
+		</style>
+	</head>
+	<body>
+		<div>추첨된 번호 : </div>
+		
+		<script>
+			let div = document.querySelector("div");  // 본문에 있는 div를 찾아서 변수 div에 넣는다.
+			const lotto = [];
+			
+			for(let i = 1; i <= 45; i++){
+				lotto.push(i);
+			}
+			
+			const shuffleBall = [];
+			
+			for(let k = 1; k <= 45; k++){
+				const indexNum = Math.floor(Math.random() * lotto.length);
+				
+				shuffleBall.push(lotto[indexNum]);				
+				lotto.splice(indexNum, 1);
+			}
+			
+			document.write("<br />");
+			document.write(shuffleBall.join(" / ") + "<br />");
+			
+			let finalBall = [];
+			
+			for(let m = 0; m < 6; m++){
+				finalBall[m] = shuffleBall[m]
+			}
+			
+			document.write("정렬 전 : " + finalBall + "<br / >");
+			
+			finalBall.sort(function (left, right) {
+				return left - right;
+			}); // 숫자 오름차순 정렬	 finalBall.sort((a, b) => a - b);	
+			
+			document.write(finalBall);
+			
+			for(let p = 0; p < 6; p++){
+				 let ball = document.createElement("span"); //본문에 span 태그를 만든다.
+				if(finalBall[p]<=10){
+					ball.style.backgroundColor = "orange";
+				}else if(finalBall[p]<=20){
+					ball.style.backgroundColor = "skyblue";
+				}else if(finalBall[p]<=30){
+					ball.style.backgroundColor = "red";
+				}else if(finalBall[p]<=40){
+					ball.style.backgroundColor = "gray";
+				}else{
+					ball.style.backgroundColor = "green";
+				}
+				
+				ball.innerHTML = finalBall[p];
+				
+				 div.appendChild(ball);
+				//document.write(ball);
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
