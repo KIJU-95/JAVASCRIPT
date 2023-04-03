@@ -7,12 +7,17 @@
 </head>
 
 <body>
-<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over this text</h1>
-
-
+	<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over this text</h1>
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color: #d94a38;
+width: 120px; height: 20px; padding: 40px;">Mouse Over Me</div>
 
 	<script>
-
+		function mOver(obj) {
+			odj.innerHTML = "Thank You"
+		}
+		function mOut(obj) {
+			odj.innerHTML = "Mouse Over Me"
+		}
 	</script>
 
 </body>
