@@ -1,12 +1,27 @@
 ﻿<!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8">
-		<title> addEventListener </title>
-		
-		<script>
+
+<head>
+	<meta charset="utf-8">
+	<title> addEventListener </title>
+
+	<script>
+
+
+
+		btn1.addEventListener("click", aa);
+
+		btn1.addEventListener("click", bb);
+
+		function aa() {
+			alert("버튼을 클릭했군요!!!");
+		}
+
+		function bb() {
+			alert("button click!!!");
+		}
 				//addEventListener("이벤트명", 호출함수, 옵션) 이벤트명앞에 on을 붙이지 않는다. 함수안에서 두개의 이벤트를 실행하고 싶을때
-				
+
 				/*자주 사용하는 이벤트의 종류
 					click – 마우스버튼을 클릭하고 버튼에서 손가락을 떼면 발생한다.
 					mouseover – 마우스를 HTML요소 위에 올리면 발생한다.
@@ -25,41 +40,20 @@
 					unload – 링크를 클릭해서 다른 페이지로 이동하거나 브라우저 탭을 닫을 때 혹은 브라우저 창을 닫을 때 이벤트가 발생한다.
 					change – 폼 필드의 상태가 변경되었을 때 발생한다. 라디오 버튼을 클릭하거나 셀렉트 박스에서 값을 선택하는 경우를 예로 들수 있다.
 				*/
-				
-				btn1.addEventListener("click", aa); 
-				
+
+
 				//onclick으로 쓰지 않는다. 
 				 // 옵션: 옵션은 생략이 가능하며, 자식과 부모 요소에서 발생하는 버블링을 제어하기 위한 옵션이다. 
 				           // false 자식이 먼저 호출이 되고 부모가 호출이 된다. 
 				           // true : 부모가 먼저 호출이 되고 자식이 호출이된다.하지만 옵션은 IE에서는 지원되지 않는다. 그래서 기본값으로 그냥 false를 쓴다. 
 				
-				btn1.addEventListener("click", bb);
-				
-				function aa(){
-					alert("버튼을 클릭했군요!!!");
-				}
-				
-				function bb(){
-					alert("button click!!!");
-				}
+
 			}
-		</script>
-	</head>
-	<body>
-		<input type="button" value="버튼" id="btn1">
-	</body>
+	</script>
+</head>
+
+<body>
+	<input type="button" value="버튼" id="btn1">
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
