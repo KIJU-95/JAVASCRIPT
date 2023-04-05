@@ -1,0 +1,357 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title> map()함수  </title>
+	</head>
+	<body>
+		<script>
+			// https://velog.io/@daybreak/Javascript-map%ED%95%A8%EC%88%98
+			
+			// https://mjn5027.tistory.com/80
+			// document.write로 작업시 브라우저에 object object 로 나오면 console.log로 바꾸어 실행할 것.
+		</script>		
+		<!--
+		어떤 배열에 있는 모든 요소들의 값을 변경해서 만든 새로운 배열을 써야 할 때가 있습니다. 그 때 루프를 사용하여 배열에 대해 수동으로 반복 처리하는 대신, 간단히 기본 제공 Array.map() 메소드를 사용하면 됩니다.
+
+		이 Array.map() 메소드는 콜백 함수를 이용해 각각의 요소에 호출해서 그 값을 변환할 수 있게 해줍니다. 다시 말하자면 콜백 함수는 배열의 각 요소에 실행됩니다.
+
+		예를 들어 다음과 같은 배열 요소가 있다고 가정해 봅시다:
+
+			let arr = [3, 4, 5, 6];
+			
+		이제 배열의 각 요소에 3을 곱해야 한다고 상상해 봅시다. 다음과 같이 for 루프 사용을 고려할 지도 모릅니다:
+
+			let arr = [3, 4, 5, 6];
+			
+			for (let i = 0; i < arr.length; i++){
+			  arr[i] = arr[i] * 3;
+			}
+
+			document.write(arr); // [9, 12, 15, 18]
+
+			그러나 사실 Array.map() 메소드를 사용한다면 이런 동일한 결과를 얻을 수 있습니다. 다음은 그에 대한 예시입니다:	
+			
+			let arr = [3, 4, 5, 6];
+
+			let modifiedArr = arr.map(function(element){
+				return element *3;
+			});
+
+			document.write(modifiedArr); // [9, 12, 15, 18]			
+			
+			일반적으로 Array.map() 메소드는 위의 코드에서와 같이 특정 숫자를 곱하거나, 애플리케이션에 필요한 다른 작업을 수행하는 등 요소에 어떤 변경 사항을 적용하는 데 사용됩니다.
+			
+	================================		
+		객체 배열에서 map()을 사용하는 방법
+			예를 들어, 당신의 친구들의 firstName 및 lastName의 값을 저장하는 객체 배열이 있습니다:
+			
+			let users = [
+				{firstName : "길동", lastName: "홍"},
+				{firstName : "우치", lastName: "전"},
+				{firstName : "두한", lastName: "김"}
+			];
+
+
+		다음과 같이 map() 메소드를 사용하여 배열을 순환하며 처리해서 firstName 및 lastName 값을 결합할 수 있습니다:
+
+			let users = [
+			  {firstName : "길동", lastName: "홍"},
+			  {firstName : "우치", lastName: "전"},
+			  {firstName : "두한", lastName: "김"}
+			];
+
+			let userFullnames = users.map(function(element){
+				return `${element.lastName}${element.firstName}`;
+			})
+
+			document.write(userFullnames);
+			// ["홍길동", "전우치", "김두한"]
+		
+		
+=====================================
+		map() 메소드는 단순히 하나의 요소만을 전달하는 것이 아닙니다. map()을 통해 콜백 함수에 전달되는 모든 인수를 살펴보겠습니다.
+
+			map()을 위한 구문은 다음과 같습니다:
+
+			arr.map(function(element, index, array){ 
+				처리문;
+			}, this);
+
+
+		콜백함수 function()은 각 배열 요소에 대해 호출되며, map() 메소드는 언제나 현재의 element와 그것의 index, 그리고 전체 array 객체를 해당 요소에 전달합니다.
+
+		this인수는 콜백함수 내부에서 사용되게 됩니다. 기본적으로 이 값은 undefined입니다. 예를 들어, this값을 숫자 80으로 변경하는 방법은 다음과 같습니다:
+
+				let arr = [2, 3, 5, 7]
+
+				arr.map(function(element, index, array){
+					document.write(this) // 80
+				}, 80);
+
+
+		document.write()를 사용하여 다른 인수들을 테스트해 볼 수도 있습니다:
+
+			let arr = [2, 3, 5, 7]
+
+			arr.map(function(element, index, array){
+				document.write(element);
+				document.write(index);
+				document.write(array);
+				return element;
+			}, 80);
+
+		여기까지가 Array.map()방법에 대해 알아야 할 전부입니다. 대부분의 경우 나머지는 무시하고 콜백 함수 내부의 element 인수만 사용합니다. 저는 보통은 그렇게 많이 사용한답니다 :)
+		-->
+		
+<!--*************************************************************************		
+		
+		map함수는 callbackFunction을 실행한 결과를 가지고 새로운 배열을 만들 때 사용한다.
+
+			array.map(callbackFunction(currenValue, index, array), thisArg);
+			
+			filter, forEach와 같은 구문이다.
+
+			callbackFunction, thisArg 두개의 매개변수가 있고
+			callbackFunction은 currentValue, index, array 3개의 매개변수를 갖는다.
+
+			currentValue : 배열 내 현재 값
+			index : 배열 내 현재 값의 인덱스
+			array : 현재 배열
+			thisArg : callbackFunction 내에서 this로 사용될 값
+		
+		
+		
+		const days = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+		
+		이러한 변수가 있다고 하자.
+		이때 모든 값에 숫자를 추가 하고 싶다면 map()함수를 이용하는 것이다. map() 함수는 모든 배열의 값에 Function을 실행하는 Method이다.
+
+		즉, days.map(...) 한다는 것은 days에 있는 모든 요일에 Function을 실행하고 Function에서 나온 값을 저장해서 새로운 배열로 만다는 것이다.
+		
+		days.map()이 해당하는 Function에 주는건 Variable(변수)인데 이건 아무거나 가능하다. 예를들어 day가 될 수도 있다.
+
+			const smilmingDays = days.map(day => document.write(day));
+			여기서 document.write(day)를 Return 하게 되는 것이다.
+			이렇게 되면 day가 배열의 각각의 값을 가지게 된다.
+				days.map(...)은 return한 값으로 이루어진 배열을 return한다.
+
+			그렇다면 위에서 처럼 document.write()를 리턴하는 대신 string을 return한다면 어떻게 될까?
+
+			const days2 = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const smilmingDays2 = days2.map(day => `😃 ${day}`);
+
+			document.write(smilmingDays2);  
+
+		이렇게 하니까 웃는 이모티콘이 추가된 요일이 배열되고 있다. `😃 ${day}` 이부분 때문이다. 이 값을 return하고 있는 것이다. array Function은 return 을 함축적으로 가지고 있다. 물론 day라는 변수를 바꿀수도 있다.
+
+		
+		다른곳에서 days.map(...)의 Function을 정의하고 싶으면 아래처럼 변수를 또 선언해 주면 된다. 그럼 아래 map()의 내용은 더 간결해 진다.
+
+			const days3 = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const addsmile = day => `😃 ${day}`; 
+			const smilmingDays3 = days3.map(addsmile); 
+			
+			document.write(smilmingDays3);  
+
+		결과는 위 방식과 동일하게 나온다.
+		days3.map()이 day라는 Parameter를 가지고 addsmile Function을 call한다.
+		
+		참고 : Parameter(매개변수) : 함수와 메서드 입력 변수(Variable) 명
+		        Argument(전달인자, 인자) : 함수와 메서드의 입력 값(Value)
+				
+		map()함수는 하나의 Parametert만 전달하지 않는다. 이외에 다른 많은 Parameter도 전달한다. 그 중 하나가 index이다.
+
+			const days4 = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const smilmingDays4 = days4.map((day,index) => `#${index}  ${day}`); 
+			document.write(smilmingDays4);  
+
+		여기서 day는 위 array에 각각의 값일 것이고, 두번째 Parameter인 index는 현재 있는 숫자들일 것이다. index의 결과는 Mun의 위치가 [0]인 것을 의미한다.
+
+		이런것들을 map()함수에서 할수 있다. 다시한번 말하자면 map Function은 Function이 준 값으로 이루어진 배열을 return한다. 어떤 값도 return하지 않는다면 어떤 배열도 받지 못할 것이다.
+		
+		
+		==== 여러가지 예시를 들어 array map 함수를 익혀보자. =====
+		
+1. 간단하게 square root (제곱근)을 구해보자
+
+		var numbers = [4,9,16,25,36];
+		var result = numbers.map(Math.sqrt);
+		document.write(result);   // [ 2, 3, 4, 5, 6 ]
+
+
+2. 이번에는 기존 배열에 값의 x2를 한 배열을 생성해 보자.
+    다음 세개는 결과가 같다.
+
+		var numbers = [ 1,2,3,4,5,6,7,8,9];
+		var newNumbers = numbers.map(number =>number *2);
+		document.write(newNumbers); // [2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+
+		var numbers = [ 1,2,3,4,5,6,7,8,9];
+		var newNumbers = numbers.map(function(number){
+		  return number*2;  // 이렇게 해도 결과가 위에 것과 똑같다.
+		});
+		document.write(newNumbers);  // [2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+
+		var numbers = [ 1,2,3,4,5,6,7,8,9];
+		function multiplyTwo(number){
+			return number *2;
+		}
+		var newNumbers = numbers.map(multiplyTwo);
+		document.write(newNumbers); // 이렇게 해도 결과가 같다. [2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+	위에 결과들은 다 같다.
+	numbers에 곱하기 2한 값이 newNumbers에 똑같이 나타난다.
+
+	map 함수는 기존의 배열을 callbackFunction에 의해 새 배열을 만드는 함수이다.
+	그러니 기존의 배열이 변하지는 않는다.
+
+
+3. map 함수는 filter함수와 같이 Object(객체)타입도 컨트롤 할 수도 있다.
+
+		var students = [
+		  {id:1, name:"슈퍼맨"},
+		  {id:2, name:"배트맨"},
+		  {id:3, name:"아쿠아맨"},
+		  {id:4, name:"원더우먼"}
+		];
+		
+	이러한 Object(객체)타입의 변수가 있다.
+	여기서 이름만 추출하고 싶으면 Array map을 이용해서 쉽게 추출할 수 있다.
+
+		var students = [
+		  {id:1, name:"슈퍼맨"},
+		  {id:2, name:"배트맨"},
+		  {id:3, name:"아쿠아맨"},
+		  {id:4, name:"원더우먼"}
+		];
+		var names = students.map(student =>student.name);
+		document.write(names);  // ['슈퍼맨', '배트맨', '아쿠아맨', '원더우먼']
+
+
+	result를 보면 이름만 추출된것을 볼 수 있다.
+	여기서 student.name을 student.id로 바꾸면 id 값만 추출된다.
+
+		var students = [
+		  {id:1, name:"슈퍼맨"},
+		  {id:2, name:"배트맨"},
+		  {id:3, name:"아쿠아맨"},
+		  {id:4, name:"원더우먼"}
+		];
+		var names = students.map(student =>student.id);
+		document.write(names);  // [ 1, 2, 3, 4 ]
+
+	결과를 보면 id 값만 추출된 것을 볼 수 있다.
+
+
+3-2 또다른 Object(객체)를 보자.
+
+		var testJson = [ 
+			{name : "이건", salary : 50000000},
+			{name : "홍길동", salary : 1000000},
+			{name : "임신구", salary : 3000000},
+			{name : "이승룡", salary : 2000000}
+		]; 
+		
+		var newJson = testJson.map(function(element, index){
+			document.write(element);
+			var returnObj = {} // 객체로 선언, key:value
+				returnObj[element.name] = element.salary;  // returnObj[element.name] : key      element.salary : value  
+				return returnObj;
+		});
+			
+		document.write("newObj");
+		document.write(newJson);
+			
+				result
+				1. document.write(element);
+					{ name: '이건', salary: 50000000 }
+					{ name: '홍길동', salary: 1000000 }
+					{ name: '임신구', salary: 3000000 }
+					{ name: '이승룡', salary: 2000000 }
+				2. document.write(newJson);
+					[{ '이건': 50000000 },{ '홍길동': 1000000 },{ '임신구': 3000000 },{ '이승룡': 2000000 }]
+
+
+4. 이번에는 Array를 reverse해보자.
+	
+	배열 값에 곱하기 2한 값들을 reverse한다.
+
+		var numbers = [1,2,3,4,5,6];
+		var numbersReverse  = numbers.map(number => number *2).reverse();
+		document.write(numbersReverse);  // [ 12, 10, 8, 6, 4, 2 ]
+
+
+5. Array안에 Array가 있는 경우를 보자.
+
+		var numbers = [[1,2,3],[4,5,6],[7,8,9]]; //array안에 array가 있는 경우
+		var newNumbers = numbers.map(array => array.map(number => number *2));
+		document.write(newNumbers);  // [ [ 2, 4, 6 ], [ 8, 10, 12 ], [ 14, 16, 18 ] ]
+		-->
+
+
+<!--************************************************************************
+
+아래와 같은 배열 arr 이 있다고 가정해 보자.
+	let arr = [ 10, 20, 30, 40, 50 ];
+
+arr 배열의 5 개의 값을 전부 꺼내 콘솔에 찍어보고 싶다면 아래처럼 for 문을 이용한 분들도 많았을 것이다.
+	const arr = [ 10, 20, 30, 40, 50 ];
+
+	//기본 for문 방식
+	console.log("기본 for문");
+	for(let index = 0 ; index < arr.length ; index++) {
+		console.log(arr[index]);
+	}
+
+	//향상된 for문 방식
+	console.log("\n향상된 for문");
+	for(let item of arr) {
+		console.log(item);
+	}
+ 
+향상된 for문에 대한 설명은 길게는 안하고 arr 배열의 값을 item 에 하나씩 담아오는 개념이라는거만 알고 보자. 여튼 이러한 for문의 형태가 아닌, map( ) 함수를 사용해 바꿔보도록 할건데,
+
+map( ) 함수는 값과 인덱스를 인자로 받아 자동으로 for문을 돌려 값을 빼도록 해준다.
+	값 : 향상된 for문의 item 인자와 같은 역할,
+	인덱스 : 기본 for문 방식의 index 와 같은 역할이라 보면 된다.
+	
+위 예제의 코드를 map( ) 을 적용시켜 바꾼 예제 코드는 다음과 같다.
+	const arr = [ 10, 20, 30, 40, 50 ];
+
+	//일반 함수 형태
+	arr.map(function(item, index) {
+		console.log(index+"번 값", item);
+	});
+
+	//화살표 함수 형태
+	arr.map((item, index) => {
+		console.log(index+"번 값", item);
+	});
+ 
+index 인자는 배열안의 인덱스(몇 번째)를 의미하며 item 에는 배열안의 값들이 하나씩 순서대로 담긴다. 
+
+보통 인덱스를 이용해 어떤 작업을 할 땐 기본 for문을, 인덱스를 사용하지 않을 땐 향상된 for문을 사용한다 하면, 이러한 두 가지의 경우를 합친 상황 때 능동적으로 사용하기위해 보통 map( ) 함수를 사용하곤 한다.
+
+
+<index 가 짝수인 값들만 객체 배열에서 뽑아내는 예제>
+	
+	const data = [
+		{id: 0, name: '홍길동', age: 10},
+		{id: 1, name: '강호동', age: 20},
+		{id: 2, name: '유재석', age: 30},
+		{id: 3, name: '이효리', age: 40},
+		{id: 4, name: '장채연', age: 50}
+	];
+
+	data.map((item, index) => {
+		if(index % 2 == 0) {
+			console.log(item);
+		}
+	});
+
+-->	
+	</body>
+</html>
