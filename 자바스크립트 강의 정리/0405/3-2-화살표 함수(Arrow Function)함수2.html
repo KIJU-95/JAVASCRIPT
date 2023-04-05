@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>화살표 함수(Arrow Function)함수</title>
+	</head>
+	<body>
+		<script>
+			function add(x, y){  // 일반 함수
+				return x + y;
+			}			
+			document.write(add(3, 5));
+			
+	document.write("<hr />");
+			
+			let add2 = function(x, y){ // 익명의 함수
+				return x + y;
+			}			
+			document.write(add2(3, 5));
+			
+	document.write("<hr />");
+			
+			let add3 = (x, y) => { // add2를 화살표 함수로
+				return x + y;
+			}			
+			document.write(add3(3, 5));
+			
+document.write("<hr />");
+			
+			let add4 = (x, y) =>  x + y; // return문이 한 줄이면 return과 중괄호{} 생략가능.
+			document.write(add4(3, 5));
+			
+document.write("<hr />");
+			
+			let add5 = (x, y) =>  x + y; // add를 화살표 함수로
+			document.write(add5(3, 5));
+			
+document.write("<hr />");
+			/*
+			function add6(num){
+				return function(value){
+					return num + value;
+				}
+			}
+			*/
+			let add6 = num => value => num + value; // add6을 화살표 함수로. 매개변수가 하나면 소괄호() 생략가능
+			
+			let result1 = add6(2); // num에게 전달
+			let result2 = result1(3);  // value에게 전달
+			document.write(result2);
+			
+document.write("<hr />");
+			/*
+			btn.addEventListener("click", function(){
+				this.style.weight = "bold";
+			});
+			*/
+			
+			btn.addEventListener("click", () => {  // IE 11에서 지원을 안함. Edge는 지원함. 그래서 위처럼 써야 함. https://caniuse.com/
+				this.style.weight = "bold";
+			});
+			
+		</script>
+	</body>
+</html>

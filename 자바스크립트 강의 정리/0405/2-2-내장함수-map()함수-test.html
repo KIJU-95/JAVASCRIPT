@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title> test Map </title>
+	</head>
+	<body>
+		<script>
+			/* map : 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환
+			
+			arr.map(callback(currentValue[, index[, array]])[, thisArg])
+			
+			callback : 새로운 배열 요소를 생성하는 함수. 다음 세 가지 인수를 가집니다.
+			currentValue : 처리할 현재 요소.
+			index Optional : 처리할 현재 요소의 인덱스.
+			array Optional : map()을 호출한 배열.
+			thisArg Optional : callback을 실행할 때 this로 사용되는 값.
+
+			반환 값 : 배열의 각 요소에 대해 실행한 callback의 결과를 모은 새로운 배열.
+			*/
+						
+			let arr = [3, 4, 5, 6];
+			
+			for (let i = 0; i < arr.length; i++){
+			  arr[i] = arr[i] * 3;
+			}
+
+			document.write(arr); // [9, 12, 15, 18]
+			document.write("<br />====================<br />");						
+			
+			let arr2 = [3, 4, 5, 6];
+
+			let modifiedArr = arr2.map(function(element){
+				return element *3;
+			});
+
+			document.write(modifiedArr); // [9, 12, 15, 18]	
+			document.write("<br />====================<br />");				
+			
+			const arr3 = [3, 4, 5, 6];
+			
+			const map1 = arr3.map(x => x * 3);
+			console.log(map1);	// [9, 12, 15, 18]
+			document.write("<br />====================<br />");			
+			
+			let users = [
+				{firstName : "길동", lastName: "홍"},
+				{firstName : "우치", lastName: "전"},
+				{firstName : "두한", lastName: "김"}
+			];
+
+			let userFullnames = users.map(function(element){
+				return `${element.lastName}${element.firstName}`;
+			})
+
+			document.write(userFullnames);	// ["홍길동", "전우치", "김두한"]
+			document.write("<br />====================<br />");
+			
+			
+			let arr4 = [2, 3, 5, 7]
+
+				arr4.map(function(element, index, array){
+					document.write(this) // 80
+				}, 80);
+			document.write("<br />====================<br />");
+			
+			
+			let arr5 = [2, 3, 5, 7]
+
+			arr5.map(function(element, index, array){
+				document.write(element + "<br />");
+				document.write(index + "<br />");
+				document.write(array + "<br />");
+				document.write("<br />====================<br />");
+				return element;
+			}, 80);
+			
+// ************************************************************			
+		
+			const days = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const smilmingDays = days.map(day => document.write(day));
+			document.write("<br />====================<br />");
+			
+			
+			const days2 = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const smilmingDays2 = days2.map(day => `😃 ${day} `);
+			
+			document.write(smilmingDays2);
+			document.write("<br />====================<br />");
+			
+			
+			const days3 = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const addsmile = day => `😃 ${day} `; 
+			const smilmingDays3 = days3.map(addsmile); 
+			
+			document.write(smilmingDays3);  
+			document.write("<br />====================<br />");
+			
+			
+			const days4 = ["Mon", "Tue", "Wed", "Thus", "Fri"];
+			const smilmingDays4 = days4.map((day,index) => `#${index}  ${day} `); 
+			document.write(smilmingDays4);  
+			document.write("<br />====================<br />");
+			
+			document.write("<br />");
+			document.write("==== 여러가지 예시를 들어 array map 함수를 익혀보자. =====<br />");
+			
+			// 1. 간단하게 square root (제곱근)을 구해보자
+				var numbers = [4,9,16,25,36];
+				var result = numbers.map(Math.sqrt);
+				document.write(result);   // [ 2, 3, 4, 5, 6 ]
+				document.write("<br />====================<br />");
+				
+				
+			// 2. 이번에는 기존 배열에 값의 x2를 한 배열을 생성해 보자.
+				// 다음 세개는 결과가 같다.
+
+		var numbers = [ 1,2,3,4,5,6,7,8,9];
+		var newNumbers = numbers.map(number =>number *2);
+		document.write(newNumbers); // [2, 4, 6, 8, 10, 12, 14, 16, 18]
+document.write("<br />====================<br />");
+
+		var numbers = [ 1,2,3,4,5,6,7,8,9];
+		var newNumbers = numbers.map(function(number){
+		  return number*2;  // 이렇게 해도 결과가 위에 것과 똑같다.
+		});
+		document.write(newNumbers);  // [2, 4, 6, 8, 10, 12, 14, 16, 18]
+document.write("<br />====================<br />");
+
+		var numbers = [ 1,2,3,4,5,6,7,8,9];
+		function multiplyTwo(number){
+			return number *2;
+		}
+		var newNumbers = numbers.map(multiplyTwo);
+		document.write(newNumbers); // 이렇게 해도 결과가 같다. [2, 4, 6, 8, 10, 12, 14, 16, 18]
+document.write("<br />====================<br />");
+				
+				
+// 3. map 함수는 filter함수와 같이 Object(객체)타입도 컨트롤 할 수도 있다. 이름만 추출하고 싶으면 Array map을 이용해서 쉽게 추출할 수 있다.
+		var students = [
+			{id:1, name:"슈퍼맨"},
+			{id:2, name:"배트맨"},
+			{id:3, name:"아쿠아맨"},
+			{id:4, name:"원더우먼"}
+		];
+		var names = students.map(student =>student.name);
+		document.write(names);  // ['슈퍼맨', '배트맨', '아쿠아맨', '원더우먼']
+		document.write("<br />====================<br />");
+
+		var students = [
+			{id:1, name:"슈퍼맨"},
+			{id:2, name:"배트맨"},
+			{id:3, name:"아쿠아맨"},
+			{id:4, name:"원더우먼"}
+		];
+		var names = students.map(student =>student.id);
+		document.write(names);  // [ 1, 2, 3, 4 ]
+		document.write("<br />====================<br />");
+
+		var testJson = [ 
+			{name : "이건", salary : 50000000},
+			{name : "홍길동", salary : 1000000},
+			{name : "임신구", salary : 3000000},
+			{name : "이승룡", salary : 2000000}
+		]; 
+		
+		var newJson = testJson.map(function(element, index){
+			console.log(element);
+			document.write(element); // [object Object][object Object][object Object][object Object]
+			var returnObj = {}
+			returnObj[element.name] = element.salary;
+			return returnObj;
+		});
+		
+		console.log(newJson);
+		document.write(newJson); // [object Object],[object Object],[object Object],[object Object]
+document.write("<br />====================<br />");
+
+// 4. 이번에는 Array를 reverse해보자.
+	// 배열 값에 곱하기 2한 값들을 reverse한다.
+		var numbers = [1,2,3,4,5,6];
+		var numbersReverse  = numbers.map(number => number *2).reverse();
+		document.write(numbersReverse);  // [ 12, 10, 8, 6, 4, 2 ]
+document.write("<br />====================<br />");
+
+// 5. Array안에 Array가 있는 경우를 보자.
+		var numbers = [[1,2,3],[4,5,6],[7,8,9]]; //array안에 array가 있는 경우
+		var newNumbers = numbers.map(array => array.map(number => number *2));
+		document.write(newNumbers);  // [ [ 2, 4, 6 ], [ 8, 10, 12 ], [ 14, 16, 18 ] ]
+
+		</script>
+	</body>
+</html>
+
