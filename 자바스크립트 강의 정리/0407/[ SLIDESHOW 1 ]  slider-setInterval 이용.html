@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ul 자체가 움직이면서 슬라이딩 되는 slider</title>
+		<style>
+			* { margin:0; padding:0;}
+			ul,ol,li { list-style:none;}
+			.container { margin:100px; margin-left:300px; position:relative; border:3px solid red; /*overflow:hidden;*/ width:123px; height:179px;}
+			.slider-container { position:absolute; left:0; top:0; /*width:1107px; 80행 내용을 반드시 참조 할 것.  */width:123px; }/*123*9=1107*/
+				.slider-container li { /*display:inline; margin-right:-6px; float:left; padding:0 10%; top:50%; transform:translateY(-50%); text-align:center; */ position:absolute; width:100%; box-sizing:border-box; /*overflow:hidden; */} /* li를 옆으로 배치하기 위해서 float이나 display:inline을 이용하면 되지만 여기서는 position:absolute; 를 주어 일단 한 장소에 모든 li를 겹치게 만든 후 63행의 함수 claculateTallestSlide()에 의해서 li를 옆으로 배치하고 있다.*/
+			
+			.slider-container.animated { transition:left .3s ease-in; }
+			
+			/* 버튼 */
+			#prev, #next { position:absolute; top:0px; left:0px;/* transform:translateY(-50%);  transition:all .3s ease-in; */ z-index:999; display:inline-block; height:80px; width:34px; border-radius:5px; box-shadow:2px 2px 3px #333; } /* position:absolute;를 주면 인라인 레벨에도 폭과 높이값, 마진, 패딩값을 줄 수 있다. 이미지 크기 -- 68*160   */
+			#prev.disabled, #next.disabled { display:none; }
+			#prev { background:orange url(img/arrow.png) no-repeat left top; top:40px; left:-40px; }
+			#prev:hover { background:green url(img/arrow.png) no-repeat left bottom; }
+			#next { background:orange url(img/arrow.png) no-repeat right top; top:40px; left:129px; }
+			#next:hover { background:green url(img/arrow.png) no-repeat right bottom; }
+		</style>		
+	</head>
+	<body>
+		<div class="container">
+			<ul class="slider-container simple-list" id="slider">
+				<li class="slide"><img src="img/m1.jpg" alt=""></li>
+				<li class="slide"><img src="img/m2.jpg" alt=""></li>
+				<li class="slide"><img src="img/m3.jpg" alt=""></li>
+				<li class="slide"><img src="img/m4.jpg" alt=""></li>
+				<li class="slide"><img src="img/m5.jpg" alt=""></li>
+				<li class="slide"><img src="img/m6.jpg" alt=""></li>
+				<li class="slide"><img src="img/m7.jpg" alt=""></li>
+				<li class="slide"><img src="img/m8.jpg" alt=""></li>
+				<li class="slide"><img src="img/m1.jpg" alt=""></li>
+			</ul>
+			<a href="#" id="prev"></a>
+			<a href="#" id="next"></a>
+		</div>
+		<script>
+		// 변수 지정
+			var sliderWrapper = document.getElementsByClassName("container"),  // 클래스명 container
+				 sliderContainer = document.getElementsByClassName("slider-container"), // 클래스명 slider-container --> ul
+				 slides = document.getElementsByClassName("slide"), // 클래스명 slide --> li
+				 //console.log(slides); // document.getElementsByClassName로 불러오면 '배열'로써 처리된다.
+				 
+				 slideCount = slides.length, // 슬라이드의 개수
+				 currentIndex = 0, // 0이면 처음. 슬라이드가 처음인지 마지막인지 알아야 함.
+				
+				 
+				 btnPrev = document.getElementById("prev"), // 버튼 아이디 prev 
+				 btnNext = document.getElementById("next"); // 버튼 아이디 next
+			
+		// 슬라이드가 있으면 가로로 배열하기
+			for(let i = 0; i < slideCount; i++){
+				slides[i].style.left = i*100 + "%"; // 100%는 sliders인 li부모의 길이
+				 // 만약 10행에서 li의 부모인 .slider-container의 크기를 li 전체크기인 1107px로 정의하면 옆으로 배치가 되지 않으니 반드시 width:100%;나 li하나의 크기인 width:123px;로 정의를 해야 한다.
+			}	
+		
+		// 슬라이드 이동함수
+			function goToSlide(idx){ // 이전 또는 다음 버튼 클릭시 idx값이 1 증가(103행) 또는 감소(98행)되어 goToSlide함수에 인수로 전달이 된다.
+				sliderContainer[0].style.left = idx * -100 + "%";
+				sliderContainer[0].classList.add("animated"); // css문의 13행을 실행하기 위해 sliderContainer[0]에 클래스명 animated를 추가한다.
+				// 만약 .classList.add("animated");가 아닌 .className="animated";로 하면 기존에 있던 클래스명들(slider-container 과 simple-list)은 없어지고 animated만 들어가게 된다.
+				currentIndex = idx; // 처음인지 마지막인지 구분하기 위해 currentIndex변수에 현재의 idx값을 넣는다.
+				
+				updateNav(); //해당 요소의 처음인지 마지막인지 구분하는 함수
+				
+				/*
+				document.getElementsByTagName('h1').innerHTML = currentIndex;
+				if(currentIndex == slideCount) {
+					sliderContainer[0].style.left = 0;
+				}
+				*/
+			}
+		
+		// 버튼 기능 업데이트 함수
+			function updateNav(){
+				if(currentIndex == 0){
+					btnPrev.classList.add("disabled"); // css 17행에 있는 처음이면 이전버튼이 안보이게 클래스명 추가
+				}else{
+					btnPrev.classList.remove("disabled"); // css 17행에 있는 처음이 아니면 이전버튼이 보이게 클래스명 제거
+				}
+				
+				if(currentIndex == slideCount - 1){ // slideCount : slides.length // 슬라이드의 개수
+					btnNext.classList.add("disabled"); // css 17행에 있는 마지막이면 다음버튼이 안보이게 클래스명 추가
+				}else{
+					btnNext.classList.remove("disabled"); // css 17행에 있는 마지막이 아니면 다음버튼이 보이게 클래스명 제거
+				}
+			}
+		
+		// 버튼을 클릭하면 슬라이드 이동시키기
+			btnPrev.addEventListener("click", function(e){
+				e.preventDefault();
+				goToSlide(currentIndex-1);
+			});
+			
+			btnNext.addEventListener("click", function(e){
+				e.preventDefault();
+				goToSlide(currentIndex+1);
+			});
+		
+		// 첫 번째 슬라이드 먼저 보이도록 하기
+			goToSlide(0); // 이 부분이 없으면 처음 실행하자 마자 이전버튼이 보이게 된다. 그러므로 시작하면서 처음 화면이 보이게 되므로 이전버튼이 안보이게 된다.
+		
+/*     *************************************************************
+	자동 슬라이드가 되게 하려면	
+		
+		goToSlide(인덱스번호); 인덱스 번호가 자동으로 증가하게 만든다.
+		마지막 인덱스 번호라면 처음 인덱스 번호로 다시 돌아가게 만든다.
+		setInterval(함수, 지정된 시간);
+		함수 --> function() { 실행문; }
+
+		마지막 이미지가 보인다면 setInterval을 종료하기 위해 clearInterval(변수);을 호출해야 한다.
+*/		
+		let nextImgIndex;
+		let stopSlide;
+		function startSlide(){
+			stopSlide = setInterval(function(){
+							nextImgIndex = (currentIndex +1) % slideCount  // 이미지 3개--> slideCount:3, currentIndex:0~2,   % : 나머지를 구함.
+								goToSlide(nextImgIndex);
+							},1000);
+		}
+		
+		
+		sliderContainer[0].addEventListener("mouseover", function(){
+			clearInterval(stopSlide);
+		});
+		
+		sliderContainer[0].addEventListener("mouseout", function(){
+			startSlide();
+		});
+		
+		/*
+		if(nextImgIndex == slideCount-1){
+			clearInterval(stopSlide);
+		} 
+		*/
+		
+		startSlide();
+		</script>
+	</body>
+</html>
+
+
+
+
+
