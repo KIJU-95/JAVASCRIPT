@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>getElementById</title>
+</head>
+
+<body>
+	<p id="intro"> Hello World!</P>
+	<p>This example demonstrates the <b>getElementById</b> method!</p>
+	<p id="demo"></p>
+
+	<script>
+		let myElement = document.getElementById("intro");
+		document.getElementById("demo").innerHTML =
+			"The text from the intro paragraph is " + myElement.innerHTML;
+	</script>
+
+
+</body>
+
+</html>
