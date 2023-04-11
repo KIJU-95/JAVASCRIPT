@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title> jQuery의 셀렉터(selectors) </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>
+			/*	글자색 - 녹색, 
+				폭과 높이 - 300px,
+				1px 두께의 테두리 빨간색 실선,
+				배경색을 노란색
+				글자를 정가운데 정렬(가로, 세로)*/
+			$(function(){
+				/*$("선택자").메서드();
+				$("선택자").css("속성명","값");
+				$("#title").css("color", "green");
+				$("#title").css("width", "300px");
+				$("#title").css("height", "300px");
+				$("#title").css("border", "1px solid red");
+				$("#title").css("background-color", "yellow");
+				$("#title").css("text-align", "center");
+				$("#title").css("line-height", "300px");*/	
+
+				/* 체인링 방식 
+				$("#title").css("color", "green").css("width", "300px").css("height", "300px").css("border", "1px solid red").css("background-color", "yellow").css("text-align", "center").css("line-height", "300px");*/
+				
+				/* 그룹핑 방식 
+				1. $("선택자").css({"속성명":"값","속성명":"값","속성명":"값"});
+				$("#title").css({
+					"color":"green", 
+					"width":"300px", 
+					"height":"300px",
+					"border":"1px solid red",
+					"background-color":"yellow",
+					"text-align":"center",
+					"line-height":"300px"
+				});*/
+				
+				/*2. $("선택자").css({속성명:"값",속성명:"값",속성명:"값"});*/
+				$("#title").css({
+					color:"green", 
+					width:300, //width:"300px", 
+					height:300, // height:"300px",
+					border:"1px solid red",
+					backgroundColor:"yellow",//"background-color":"yellow",
+					textAlign:"center", // "text-align":"center",
+					lineHeight:"300px" // "line-height":"300px"
+				});
+			});
+			
+			
+		</script>
+		<style>
+			/*#title { width:400px; hegiht:500px; } 속성:값; 속성:값; */
+		</style>
+	</head>
+	<body>
+		<h1 id="title">제이쿼리</h1>
+	<!-- 
+		제이쿼리(jQuery)
+			자바스크립트 라이브러리
+			www.jquery.com에서 다운로드 받아 link시킨다. 그러나 현재 3.0이 나왔으나 버전 2, 3대는 익스 9에서 지원이 되지 않으므로
+			http://code.jquery.com/ 로 이동하여 예전 버전 1대를 다운 받는다.
+			현재 다운로드가 되지 않아 cdn을 연결한다.  http://code.jquery.com/jquery-1.12.4.min.js
+
+			또는 구글 cdn을 연결한다.
+			www.jquery.com에서 다운로드버튼을 클릭 후 화면 아래로 내려가 Other CDNs중 Google CDN을 눌러
+			 src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" 복사 후 붙여넣는다.
+
+			반드시 먼저 cdn을 연결한 후 그 밑에 script를 기록한다.
+
+
+			제이쿼리 기본구문
+			$(document).ready(function(){
+				내용
+			});    ----- 도큐멘트를 읽어온후 실행하라는 기본 구문
+
+			$(function(){
+				내용
+			});
+
+			$(document).ready(function(){
+				$('선택자').메소드();
+			});
+
+			$(document).ready(function(){
+				$('선택자').속성;
+			});
+			
+			css제어하는 메서드
+				css()
+				css('속성명')  대상의 속성명에 해당하는 값을 가져온다.
+				css('속성명','값')   대상의 속성에 새 값을 다시 적용한다.
+				css({'속성명':'값', '속성명':'값', '속성명':'값'})
+			
+	-->
+		 
+
+		<!--
+			
+		-->
+	</body>
+</html>
