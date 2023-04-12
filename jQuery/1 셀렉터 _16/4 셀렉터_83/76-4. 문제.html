@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(function(){
+	
+		// ① 해당 요소를 클릭할때
+       
+		// ② 해당 요소를 더블클릭하면 이미지가 바뀌지만 클릭은 무시하고 싶을때
+       
+
+	   
+          $('.mov a').click(function(){  //클릭 무효화..
+              return false;
+          })
+		
+		// ③ 마우스 눌렀을때
+		// ③ 마우스에서 손을 떼었을때
+		
+		
+		
+		
+		
+	 	    
+		// ④ 마우스를 해당 요소 위에 올렸을때/내렸을때
+           
+		  
+		  
+           // ⑤ 키보드의 탭키를 눌러 해당 요소가 선택/해제되었을때 
+           
+         
+        })
+    
+    </script>
+</head>
+<body>
+
+    
+        
+<ul class="mov">
+    <li><a href="images/mov1.jpg">영화1</a></li>
+    <li><a href="images/mov2.jpg">영화2</a></li>
+    <li><a href="images/mov3.jpg">영화3</a></li>
+    <li><a href="images/mov4.jpg">영화4</a></li>
+    <li><a href="images/mov5.jpg">영화5</a></li>
+</ul>            
+<p><img src="images/mov1.jpg" alt="영화1"></p>                    
+</body>
+</html>
