@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	
+		<style>
+			* { margin:0; padding:0; }
+			li { list-style:none; }
+			a { text-decoration:none; font-size:0.8em; font-weight:bold; color:red; }
+
+			/* 여기부터 작성. 부모 div(이미지 5개보일 크기 185x5) */
+			#slidebox { width:925px; height:230px; margin-top:100px; margin-left:400px; position:relative; margin-bottom:0;   /*overflow:hidden; */ outline:5px solid red; }
+			/* 자식 div(이미지 10개보일 크기 185x10) */
+				#slide { width:1850px; height:240px;  } /*변경된 내용 */ 
+					#slide ul li { position:absolute; left:0; } /*변경된 내용 */
+						#slide ul li img { width:185px; height:240px; } 
+						
+			.buttons { width:500px; text-align:center; margin:50px auto; }
+				.button { padding:10px; border:2px solid #ff9999; background:#ffcc00; margin-left:10px; border-radius:5px; }
+				.button:hover { background-color:white; }
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>		
+		<script>
+			$(function(){	
+			
+				/* li를 펼쳐서 한 줄로 배치 */
+				$("#slide ul li").each(function(index){ 
+					$(this).css("left",index*185);
+				});
+				$("#slide ul li:last").css("left",-185);// 마지막 li를 맨 앞으로 배치하여 오른쪽으로 이미지가 움직일 때 공백이 되는 것을 방지한다.
+				
+				$("#btnNext").click(function(){
+                    $("#slide ul li").each(function(){
+						let left=parseInt($(this).css("left"));
+						if(left<=-370){
+							$(this).css({left:(left+1480)});
+						}else{
+							$(this).animate({left:(left-185)},1000);
+						}
+					});
+				});				
+// 0:-185, 1:0, 2:185, 3:370, 4:555, 5:740, 6:925, 7:1110, 8:1295, 9:1480, 10:1665 
+				
+				$("#btnPrev").click(function(){
+					$("#slide ul li").each(function(idx){
+						let left=parseInt($(this).css("left"));
+						
+						if(left>=1480){
+							$(this).css({left:-185});
+						}else{
+							$(this).animate({left:(left+185)},1000);
+						}
+					});
+				});
+								
+			});  // 25행 $(function(){	끝
+		</script>
+	</head>
+	<body>
+	<div>
+		<div id="slidebox" > <!-- 이미지가 5개 보일부분 -->
+			<div id="slide">  <!-- 이미지가 10개 모두 보일부분 -->
+				<ul>
+				    <!-- img : 185*240 -->
+					<li><img src="images/slide1.png"></li>
+					<li><img src="images/slide2.png"></li>
+					<li><img src="images/slide3.png"></li>
+					<li><img src="images/slide4.png"></li>
+					<li><img src="images/slide5.png"></li>
+					<li><img src="images/slide6.png"></li>
+					<li><img src="images/slide7.png"></li>
+					<li><img src="images/slide8.png"></li>
+					<li><img src="images/slide9.png"></li>
+					<li><img src="images/slide10.png"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="buttons">
+			<a href="#" id="btnPrev"><span class="button">이전이미지</span></a>
+			<a href="#" id="btnNext"><span class="button">다음이미지</span></a>
+		</div>
+	</div>
+	</body>
+</html>

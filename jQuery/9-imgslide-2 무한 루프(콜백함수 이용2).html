@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	
+		<style>
+			* { margin:0; padding:0; }
+			li { list-style:none; }
+			a { text-decoration:none; font-size:0.8em; font-weight:bold; color:red; }
+
+			/* 여기부터 작성. 부모 div(이미지 5개보일 크기 185x5) */
+			#slidebox { width:925px; height:230px; margin-top:100px; margin-left:400px; position:relative; margin-bottom:0;   /*overflow:hidden; */ outline:5px solid red; }
+			/* ul#slide(이미지 10개보일 크기 185x10) */
+				#slide { width:1850px; height:240px; position:relative; } /*변경된 내용 */ 
+					#slide li { float:left; } /*변경된 내용 */
+						#slide li img { width:185px; height:240px; } 
+						
+			.buttons { width:500px; text-align:center; margin:50px auto; }
+				.button { padding:10px; border:2px solid #ff9999; background:#ffcc00; margin-left:10px; border-radius:5px; }
+				.button:hover { background-color:white; }
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>		
+		<script>
+			$(function(){	
+			
+				$("#slide").css("left",-185); // 처음부터 이전버튼을 누르면 맨 처음이미지가 맨 앞에 있을 경우 맨 앞에 공백이 생기는 것을 방지하기 위해 ul을 왼쪽으로 밀어 넣고 두 번째 이미지부터 보이게 함.
+			
+				$("#btnPrev").click(function(){
+					let left=parseInt($("#slide").css("left"));
+					let movePos=left+185; 
+
+					$("#slide").animate({left:movePos},1000, function(){
+					//$("#slide ul").animate({left: "+=185px"},1000, function(){
+						$("#slide li:last").prependTo("#slide");
+						$("#slide").css("left", -185);
+					});
+				});
+				
+				$("#btnNext").click(function(){
+					let left=parseInt($("#slide").css("left"));
+					let movePos=left-185; 
+					
+					$(this).animate({left:movePos},1000, function(){
+					//$("#slide").animate({left: "-=185px"},1000, function(){
+						$("#slide li:first").appendTo("#slide");
+						$("#slide").css("left", -185);
+					});
+				});
+			/*	*/	
+			});  // 25행 $(function(){	끝
+		</script>
+	</head>
+	<body>
+	<div>
+		<div id="slidebox" > <!-- 이미지가 5개 보일부분 -->
+			<ul id="slide"> <!-- 이미지가 10개 모두 보일부분 -->
+			    <!-- img : 185*240 -->
+				<li><img src="images/slide1.png"></li>
+				<li><img src="images/slide2.png"></li>
+				<li><img src="images/slide3.png"></li>
+				<li><img src="images/slide4.png"></li>
+				<li><img src="images/slide5.png"></li>
+				<li><img src="images/slide6.png"></li>
+				<li><img src="images/slide7.png"></li>
+				<li><img src="images/slide8.png"></li>
+				<li><img src="images/slide9.png"></li>
+				<li><img src="images/slide10.png"></li>
+			</ul>
+		</div>
+		<div class="buttons">
+			<a href="#" id="btnPrev"><span class="button">이전이미지</span></a>
+			<a href="#" id="btnNext"><span class="button">다음이미지</span></a>
+		</div>
+	</div>
+	</body>
+</html>
